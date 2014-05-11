@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html lang="fr">  
+	<head>  
+    <meta charset="utf-8">
+	  <title>L'heure, un compte à rebours et un compteur à la façon Apple</title>  
+	  <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+		<style type="text/css"> 
+			ul { list-style-image: none; }
+		
+			.coutdown-heure {list-style-type:none;height:100px;margin:30px auto;color:#000}
+			.coutdown-heure li{float:left;background:url(filmstrip.png) 0 0 no-repeat;width:53px;height:103px}
+			.coutdown-heure li.mid{background:url(filmstrip_time.png) 0 0 no-repeat;}
+			.coutdown-heure li.short{background:url(filmstrip_time_tiny.png) 0 0 no-repeat;}
+			.coutdown-heure li.seperator{background:none;width:24px;font-size:80px;line-height:65px}
+		</style> 
+  </head> 
+
+	<body> 
+		<ul class="coutdown-heure"> 
+			<li id="hours5" class="short"></li> 
+			<li id="hours4"></li> 
+			<li class="seperator">:</li> 
+			<li id="hours3" class="mid"></li> 
+			<li id="hours2"></li> 
+			<li class="seperator">:</li> 
+			<li id="hours1" class="mid"></li> 
+			<li id="hours0"></li>
+		</ul>
+		
+		<script type="text/javascript" src="countdown_hours.js"></script> 
+	</body>  
+</html>  
