@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_MEDIAS');
+	$user->accessRight('ADMIN_GALLERY');
 
 	if(isset($_POST['jeton']))
 	{
@@ -25,7 +25,7 @@
 			$insert_video->execute();
 
 			$_SESSION['success'] = 'Video has been added.';
-			$user->redirect('Admin-Medias');
+			$user->redirect('Admin-Gallery');
 		}
 	}
 

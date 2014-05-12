@@ -170,7 +170,6 @@
 			*	ADMIN_OTHERS = 8
 			*	ADMIN_ALL = 9
 			*	SUPER_ADMIN = 10
-			*	ADMIN_MEDIAS = 11
 			*	DEV = 42
 			*/
 
@@ -188,8 +187,6 @@
 				$rank = array(6,9,10,42);
 			if($s == 'ADMIN_GALLERY')
 				$rank = array(7,9,10,42);
-			if($s == 'ADMIN_MEDIAS')
-				$rank = array(11,9,10,42);
 			if($s == 'ADMIN_OTHERS')
 				$rank = array(8,9,10,42);
 			if($s == 'SUPER_ADMIN')

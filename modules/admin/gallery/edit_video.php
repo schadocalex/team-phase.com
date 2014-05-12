@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_MEDIAS');
+	$user->accessRight('ADMIN_GALLERY');
 
 	$id = @$_GET['id'];
 	if(!MySQL::exist('video', 'id', $id))
@@ -34,7 +34,7 @@
 				WHERE id = \"$id\"");
 
 			$_SESSION['success'] = 'Video has been edited.';
-			$user->redirect('Admin-Medias');
+			$user->redirect('Admin-Gallery');
 		}
 	}
 
@@ -44,7 +44,7 @@
 	<div class="bg4" >
 		<?php
 			showMessages();
-			$form->initializeImg('edit_video', '', 'Admin-Medias-Edit-Video-'.$video['id']);
+			$form->initializeImg('edit_video', '', 'Admin-Gallery-Edit-Video-'.$video['id']);
 			$form->input('text', 'URL Youtube (id = '.$video['id_youtube'].'):', 'url_youtube', $video['url_youtube']);
 			$form->input('date', 'Date:', 'date', $video['date']);
 			$form->end('Edit video');

@@ -3,7 +3,7 @@
 		<a href="Admin-News" >NEWS</a>
 		<a href="Admin" >MEMBERS</a>
 		<a href="Admin-Results" >RESULTS</a>
-		<a href="Admin-Medias" >MEDIAS</a>
+		<a href="Admin-Gallery" >GALLERY</a>
 		<a href="Admin" >OTHERS</a>
 	</div>
 </div>

@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_MEDIAS');
+	$user->accessRight('ADMIN_GALLERY');
 
 	$id = @$_GET['id'];
 	if(!MySQL::exist('picture', 'id', $id))
@@ -30,7 +30,7 @@
 				WHERE id = \"$id\"");
 
 			$_SESSION['success'] = 'Picture has been edited.';
-			$user->redirect('Admin-Medias');
+			$user->redirect('Admin-Gallery');
 		}
 	}
 
@@ -40,7 +40,7 @@
 	<div class="bg4" >
 		<?php
 			showMessages();
-			$form->initializeImg('edit_picture', '', 'Admin-Medias-Edit-Picture-'.$picture['id']);
+			$form->initializeImg('edit_picture', '', 'Admin-Gallery-Edit-Picture-'.$picture['id']);
 			$form->input('image', 'Image:', 'image');
 			$form->input('date', 'Date:', 'date', $picture['date']);
 			$form->end('Edit picture');

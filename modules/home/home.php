@@ -92,8 +92,10 @@
 						<?php
 							if($first) $first = false; else echo '<hr />';
 
+							/*
 							$color = ($match['score_phase'] > $match['score_opponent'])? 'win' : 'defeat';
 							$color = ($match['score_phase'] == $match['score_opponent'])? 'draw' : $color;
+							*/
 						?>
 						<p class="last_match" >
 							<a href="<?= $match['matchlink'] ?>" target="_blank" >
@@ -110,9 +112,9 @@
 							<span class="">
 								<?php
 									if($match['score_phase'] <= $match['score_opponent'])
-										echo '<img src="include/img/icon/lost.png" />';
+										echo '<img class="icon_score" src="include/img/icon/lost.png" />';
 									else
-										echo '<img src="include/img/icon/win.png" />';
+										echo '<img class="icon_score" src="include/img/icon/win.png" />';
 								?>
 							</span>
 							<span class="game" ><?= dispImg($games[$match['game_id']]['icon_id']) ?></span>

@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_MEDIAS');
+	$user->accessRight('ADMIN_GALLERY');
 
 	if(isset($_POST['jeton']))
 	{
@@ -19,7 +19,7 @@
 			$insert_picture->execute();
 
 			$_SESSION['success'] = 'Picture has been added.';
-			$user->redirect('Admin-Medias');
+			$user->redirect('Admin-Gallery');
 		}
 	}
 

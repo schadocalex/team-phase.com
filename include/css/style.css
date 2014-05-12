@@ -717,6 +717,10 @@ form  {
 					border: none;
 					margin: 3px 0 3px 0;
 				}
+				#last_matches .icon_score {
+					position: relative;
+					top: 2px;
+				}
 		/* last_video */
 		#last_video {
 			background: rgba(16,16,16,0.9) url('../img/last_matches/bg_upcoming_match.png') no-repeat center 0;

@@ -11,7 +11,7 @@
 	include("menu.php");
 ?>
 
-<div id="admin_medias" >
+<div id="admin_gallery" >
 	<?php showMessages(true); ?>
 	<div class="admin bg4" >
 		<h2>PICTURES</h2>
@@ -19,19 +19,19 @@
 		<table>
 			<?php foreach($pictures as $picture) { ?>
 				<tr style="width:214px;float:left;" >
-					<td class="td_admin_medias" >
+					<td class="td_admin_gallery" >
 						<img src="<?= srcImgMin($picture['image_id']) ?>" width="64" height="64" />
 					</td>
-					<td class="td_admin_medias" >
+					<td class="td_admin_gallery" >
 						<?= $picture['date'] ?>
 					</td>
 					<td class="icon" >
-						<a href="Admin-Medias-Edit-Picture-<?= $picture['id'] ?>" >
+						<a href="Admin-Gallery-Edit-Picture-<?= $picture['id'] ?>" >
 							<img src="include/img/icon/edit.gif" alt="Edit" />
 						</a>
 					</td>
 					<td class="icon" >
-						<a href="Admin-Medias-Delete-Picture-<?= $picture['id'] ?>" >
+						<a href="Admin-Gallery-Delete-Picture-<?= $picture['id'] ?>" >
 							<img src="include/img/icon/delete.png" alt="Edit" />
 						</a>
 					</td>
@@ -41,7 +41,7 @@
 		<br />
 		<a href="#add_new_picture" class="fancybox" >Add picture</a>
 		<div id="add_new_picture" class="popup" >
-			<?php include('medias/add_picture_embedded.php'); ?>
+			<?php include('gallery/add_picture_embedded.php'); ?>
 		</div>
 	</div>
 	<div class="admin bg4" >
@@ -50,19 +50,19 @@
 		<table>
 			<?php foreach($videos as $video) { ?>
 				<tr style="width:214px;float:left;" >
-					<td class="td_admin_medias" >
+					<td class="td_admin_gallery" >
 						<img src="<?= srcImgYoutube($video['id_youtube']) ?>" width="64" height="64" />
 					</td>
-					<td class="td_admin_medias" >
+					<td class="td_admin_gallery" >
 						<?= $video['date'] ?>
 					</td>
 					<td class="icon" >
-						<a href="Admin-Medias-Edit-Video-<?= $video['id'] ?>" >
+						<a href="Admin-Gallery-Edit-Video-<?= $video['id'] ?>" >
 							<img src="include/img/icon/edit.gif" alt="Edit" />
 						</a>
 					</td>
 					<td class="icon" >
-						<a href="Admin-Medias-Delete-Video-<?= $video['id'] ?>" >
+						<a href="Admin-Gallery-Delete-Video-<?= $video['id'] ?>" >
 							<img src="include/img/icon/delete.png" alt="Edit" />
 						</a>
 					</td>
@@ -72,7 +72,7 @@
 		<br />
 		<a href="#add_new_video" class="fancybox" >Add video</a>
 		<div id="add_new_video" class="popup" >
-			<?php include('medias/add_video_embedded.php'); ?>
+			<?php include('gallery/add_video_embedded.php'); ?>
 		</div>
 	</div>
 </div>

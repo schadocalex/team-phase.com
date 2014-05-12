@@ -101,7 +101,7 @@
 		</div>
 	</div>
 	<div class="admin bg4" >
-		<h2>OPPONENTS</h2>
+		<h2>MATCHES</h2>
 		<a href="#add_new_match" class="fancybox" >Add match</a><br /><br />
 		<table>
 			<?php foreach($matches as $match) { ?>

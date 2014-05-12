@@ -89,7 +89,7 @@
 					<a href="News" >NEWS</a>
 					<a href="Teams" >TEAMS</a>
 					<a href="Results" >RESULTS</a>
-					<a href="Medias" >MEDIAS</a>
+					<a href="Gallery" >GALLERY</a>
 					<a href="Phasetv" >PHASETV</a><em id="status_phastv"> OFF</em>
 					<a href="http://fr.twitch.tv/teamphase" class="shake lien_reseau_social" ><img src="include/img/tv.png" /></a>
 					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
