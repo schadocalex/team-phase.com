@@ -60,7 +60,7 @@
 							<marquee width="285"> <span style="color:#e11d1d;" >/</span>!<span style="color:#e11d1d;" >\</span> DEATHADDER contest : check your profile to get your number! <span style="color:#e11d1d;" >/</span>!<span style="color:#e11d1d;" >\</span> </marquee>
 						</p-->
 						<p id="header_bartop_right" >
-							<?php if($user->is('MEMBER')) { // MEMBRE
+							<?php if($user->is('MEMBER')) {
 								if(empty($_SESSION['jeton_logout']))
 									$_SESSION['jeton_logout'] = id(8);
 							?>
@@ -91,6 +91,9 @@
 					<a href="Results" >RESULTS</a>
 					<a href="Gallery" >GALLERY</a>
 					<a href="Phasetv" >PHASETV</a><em id="status_phastv"> OFF</em>
+					<?php if($user->is('SUPER_ADMIN')) { ?>
+						<a href="Home" >TOURNAMENT</a>
+					<?php } ?>
 					<a href="http://fr.twitch.tv/teamphase" class="shake lien_reseau_social" ><img src="include/img/tv.png" /></a>
 					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
 					<a href="#" class="shake lien_reseau_social" ><img src="include/img/fb.png" /></a>

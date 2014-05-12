@@ -376,7 +376,7 @@ form  {
 		line-height: 50px;
 		float: right;
 		margin-top: 10px;
-		margin-right: 20px;
+		margin-right: 10px;
 		position : relative;
 	}
 	#menu .lien_reseau_social:hover {
@@ -819,10 +819,12 @@ form  {
 .img_news_left {
 	float: left;
 	margin-right: 20px;
+	box-shadow: 0px 0px 30px #000;
 }
 .img_news_right {
 	float: right;
 	margin-left: 20px;
+	box-shadow: 0px 0px 30px #000;
 }
 .news p {
 	text-align: justify;

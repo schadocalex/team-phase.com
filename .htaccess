@@ -1,0 +1,54 @@
+#Order Allow,Deny
+RewriteEngine on
+
+ErrorDocument 401 /team-phase.com/Home
+ErrorDocument 403 /team-phase.com/Home
+ErrorDocument 404 /team-phase.com/Home
+ErrorDocument 500 /team-phase.com/Home
+
+DirectoryIndex /team-phase.com/modules/home/home.php [L]
+
+RewriteRule ^$ /team-phase.com/modules/home/home.php [L]
+RewriteRule ^Home$ /team-phase.com/modules/home/home.php [L]
+
+RewriteRule ^News$ /team-phase.com/modules/news/news.php [L]
+RewriteRule ^News-([0-9]+)$ /team-phase.com/modules/news/news.php?id=$1 [L]
+RewriteRule ^Teams$ /team-phase.com/modules/teams/teams.php [L]
+RewriteRule ^Results$ /team-phase.com/modules/results/results.php [L]
+RewriteRule ^Gallery$ /team-phase.com/modules/gallery/gallery.php [L]
+RewriteRule ^Phasetv$ /team-phase.com/modules/phasetv/phasetv.php [L]
+
+RewriteRule ^Login$ /team-phase.com/modules/log/login.php [L]
+RewriteRule ^Logout-(.+)$ /team-phase.com/modules/log/logout.php?jeton_logout=$1 [L]
+
+RewriteRule ^Profile-([0-9]+)-(.+) /team-phase.com/modules/profile/profile.php?id_profile=$1 [L]
+RewriteRule ^Edit$ /team-phase.com/modules/profile/edit.php [L]
+
+RewriteRule ^Registration$ /team-phase.com/modules/registration/registration.php [L]
+RewriteRule ^Registration-Confirm$ /team-phase.com/modules/registration/registration_confirm.php [L,QSA]
+RewriteRule ^Registration-Confirm-(.+)$ /team-phase.com/modules/registration/registration_confirm.php?confirmation_token=$1 [L]
+
+RewriteRule ^Admin$ /team-phase.com/modules/admin/admin.php [L]
+RewriteRule ^Admin-([a-zA-Z]+)-Delete-([a-zA-Z]+)-([0-9]+)$ /team-phase.com/modules/admin/delete.php?table=$2&id=$3&page=$1 [L]
+
+RewriteRule ^Admin-Results$ /team-phase.com/modules/admin/admin_results.php [L]
+RewriteRule ^Admin-Results-Add-Game$ /team-phase.com/modules/admin/results/add_game.php [L]
+RewriteRule ^Admin-Results-Edit-Game-([0-9]+)$ /team-phase.com/modules/admin/results/edit_game.php?id=$1 [L]
+RewriteRule ^Admin-Results-Add-Competition$ /team-phase.com/modules/admin/results/add_competition.php [L]
+RewriteRule ^Admin-Results-Edit-Competition-([0-9]+)$ /team-phase.com/modules/admin/results/edit_competition.php?id=$1 [L]
+RewriteRule ^Admin-Results-Add-Opponent$ /team-phase.com/modules/admin/results/add_opponent.php [L]
+RewriteRule ^Admin-Results-Edit-Opponent-([0-9]+)$ /team-phase.com/modules/admin/results/edit_opponent.php?id=$1 [L]
+RewriteRule ^Admin-Results-Add-Match$ /team-phase.com/modules/admin/results/add_match.php [L]
+RewriteRule ^Admin-Results-Edit-Match-([0-9]+)$ /team-phase.com/modules/admin/results/edit_match.php?id=$1 [L]
+
+RewriteRule ^Admin-News$ /team-phase.com/modules/admin/admin_news.php [L]
+RewriteRule ^Admin-News-Add-News$ /team-phase.com/modules/admin/news/add_news.php [L]
+RewriteRule ^Admin-News-Edit-News-([0-9]+)$ /team-phase.com/modules/admin/news/edit_news.php?id=$1 [L]
+
+RewriteRule ^Admin-Gallery$ /team-phase.com/modules/admin/admin_gallery.php [L]
+RewriteRule ^Admin-Gallery-Add-Picture$ /team-phase.com/modules/admin/gallery/add_picture.php [L]
+RewriteRule ^Admin-Gallery-Edit-Picture-([0-9]+)$ /team-phase.com/modules/admin/gallery/edit_picture.php?id=$1 [L]
+RewriteRule ^Admin-Gallery-Add-Video$ /team-phase.com/modules/admin/gallery/add_video.php [L]
+RewriteRule ^Admin-Gallery-Edit-Video-([0-9]+)$ /team-phase.com/modules/admin/gallery/edit_video.php?id=$1 [L]
+
+RewriteRule ^Access-Denied$ /team-phase.com/modules/error/access_denied.php [L]
