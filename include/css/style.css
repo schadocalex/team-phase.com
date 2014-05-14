@@ -105,6 +105,10 @@ hr {  margin: 6px 0 6px 0; }
 	padding: 10px 20px 10px 20px;
 	border-bottom: 5px solid #800;
 }
+.bg4:hover, .bg5:hover, .bg6:hover {
+	border-bottom: 5px solid #a00;
+	background: rgba(16,16,16,0.8);
+}
 
 p, a {
 	color: #fff;
@@ -354,7 +358,7 @@ form  {
 	margin-bottom: 0;
 }
 	#menu a {
-		width: 100px;
+		width: 96px;
 		height: 50px;
 		line-height: 50px;
 		text-align: center;
@@ -499,6 +503,10 @@ form  {
 		border-radius: 5px;
 		border-bottom: 5px solid #800;
 	}
+	#slider:hover {
+		border-bottom: 5px solid #a00;
+		background: rgba(16,16,16,0.8);
+	}
 		#slider p {
 			font-size: 10px;
 		}
@@ -610,6 +618,10 @@ form  {
 			padding-right: 40px;
 			border-bottom: 5px solid #800;
 		}
+		#upcoming_match:hover {
+			border-bottom: 5px solid #a00;
+			background: rgba(16,16,16,0.8) url('../img/last_matches/bg_upcoming_match.png') no-repeat center 0;
+		}
 			#upcoming_match img {
 				width: 78px;
 				height: 78px;
@@ -642,6 +654,10 @@ form  {
 			position: relative;
 			left: -15px;
 			border-bottom: 5px solid #800;
+		}
+		#last_matches:hover {
+			border-bottom: 5px solid #a00;
+			background: rgba(16,16,16,0.8);
 		}
 			#last_matches .last_match {
 				display: block;
@@ -732,6 +748,10 @@ form  {
 			float: left;
 			border-bottom: 5px solid #800;
 		}
+		#last_video:hover {
+			border-bottom: 5px solid #a00;
+			background: rgba(16,16,16,0.8);
+		}
 		
 		/* gallery */
 		#home_gallery {
@@ -746,6 +766,10 @@ form  {
 			position: relative;
 			left: -1px;
 			border-bottom: 5px solid #800;
+		}
+		#home_gallery:hover {
+			border-bottom: 5px solid #a00;
+			background: rgba(16,16,16,0.8);
 		}
 		
 			#home_gallery .miniature {
@@ -788,6 +812,10 @@ form  {
 		left: -1px;
 		border-bottom: 5px solid #800;
 	}
+	#about_us:hover {
+		border-bottom: 5px solid #a00;
+		background: rgba(16,16,16,0.8);
+	}
 
 	#latest_comment {
 		background: rgba(16,16,16,0.9);
@@ -798,6 +826,10 @@ form  {
 		padding: 0 10px 0 10px;
 		float: left;
 		border-bottom: 5px solid #800;
+	}
+	#latest_comment:hover {
+		border-bottom: 5px solid #a00;
+		background: rgba(16,16,16,0.8);
 	}
 		#latest_comment hr {
 			background-color: #999;
@@ -901,6 +933,24 @@ form  {
 		}
 		#teams img {
 			margin-left: -6px;
+		}
+/* Sponsors */
+	#sponsors {
+		margin: 0;
+	}
+		#sponsors .sponsor {
+			text-align: center;
+		}
+		#sponsors p {
+			text-align: justify;
+		}
+		#sponsors .logo {
+			float:left;
+			width:220px;
+			margin: 0 10px 0 10px;
+		}
+		#sponsors .logo img {
+			max-width:200px;
 		}
 /* Results */
 	#results {
