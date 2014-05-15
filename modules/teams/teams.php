@@ -10,7 +10,6 @@
 		<p class="teams_members" >
 			<img src="include/img/flag/fr.png" /> Côme "<strong>aacid</strong>" M. (Founder)				<br />
 			<img src="include/img/flag/fr.png" /> Pierre "<strong>drkje</strong>" Dubard (Founder)		<br />
-			<img src="include/img/flag/fr.png" /> Phil "<strong>NeoX</strong>" A. (Co-Founder)				<br />
 			<img src="include/img/flag/be.png" /> Kevin "<strong>badkip</strong>" Coenegrachts (Moviemaker)				<br />
 			<img src="include/img/flag/us.png" /> Jon "<strong>ohurcool</strong>" T. (Newswriter)	<br />
 			<img src="include/img/flag/fr.png" /> Alexis "<strong>schadocalex</strong>" Schad (Webmaster)	<br />

@@ -864,6 +864,9 @@ form  {
 .news {
 	border-bottom: inherit;
 }
+.news:hover {
+	border-bottom: inherit;
+}
 
 	.news .news_red_bar {
 		background-color: #800;
