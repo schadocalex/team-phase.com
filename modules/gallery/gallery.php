@@ -15,9 +15,9 @@
 	-->
 		<?php foreach($pictures as $picture) { ?>
 			<a href="#picture_<?= $picture['id'] ?>"
-				class="fancybox link_miniature" >
+				class="fancybox link_miniature" rel="gallery" >
 				<img style="background:url('<?= srcImgMin($picture['image_id']) ?>') center center;" 
-				class="miniature" src="include/img/medias/picture_w.png"/>
+				class="miniature" src="include/img/medias/picture_w.png" />
 			</a>
 			<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
 				src="<?= srcImg($picture['image_id']) ?>" /></div>
@@ -30,7 +30,7 @@
 		" />
 	-->
 		<?php foreach($videos as $video) { ?>
-			<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" >
+			<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" rel="video" >
 				<img style="background:url('<?= srcImgYoutube($video['id_youtube']) ?>') center center;" 
 				class="miniature" src="include/img/medias/video_w.png"/>
 			</a>
