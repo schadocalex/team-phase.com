@@ -5,7 +5,7 @@
 					<!--<a href="http://www.ycn-hosting.com/" ><img class="sponsors_img_ycn sponsors_img" src="include/img/sponsors/ycn_w.png" /></a>-->
 					<a href="http://www.fragnet.net/" ><img class="sponsors_img_fg sponsors_img" src="include/img/sponsors/fragnet_w.png" /></a>
 					<a href="http://fragwise.eu/" ><img class="sponsors_img_fw sponsors_img" src="include/img/sponsors/fragwise_w.png" /></a>
-					<a href="http://fshost.me/" ><img class="sponsors_img_fshost sponsors_img" src="include/img/sponsors/fshost_w.png" /></a>
+					<!-- <a href="http://fshost.me/" ><img class="sponsors_img_fshost sponsors_img" src="include/img/sponsors/fshost_w.png" /></a>-->
 				</div>
 				
 				<div id="footer" class="bg1" >

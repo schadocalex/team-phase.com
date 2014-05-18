@@ -265,7 +265,7 @@ form  {
 			margin: 0;
 		}
 		#header_bartop_right {
-			width: 282px;
+			width: 400px;
 			height: 40px;
 			line-height: 40px;
 			float: right;
@@ -944,16 +944,21 @@ form  {
 		#sponsors .sponsor {
 			text-align: center;
 		}
-		#sponsors p {
+		#sponsors .text {
 			text-align: justify;
+			width: 400px;
+			float: left;
 		}
 		#sponsors .logo {
 			float:left;
-			width:220px;
-			margin: 0 10px 0 10px;
+			width: 220px;
+			margin: 30px 10px 0 10px;
 		}
 		#sponsors .logo img {
 			max-width:200px;
+		}
+		#sponsors .sponsor_bloc {
+			margin: 0 200px 50px 0;
 		}
 /* Results */
 	#results {
@@ -1097,4 +1102,9 @@ form  {
 
 #medias .link_miniature {
 	overflow: hidden;
+}
+
+/* TOURNAMENT */
+#tournament li {
+	margin-left: 20px;
 }

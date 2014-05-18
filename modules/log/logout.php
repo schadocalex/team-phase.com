@@ -4,7 +4,8 @@
 
 	if($_GET['jeton_logout'] == $_SESSION['jeton_logout'])
 	{
-		session_destroy();
+		//session_destroy();
+		session_unset();
 		setcookie('username', ''); 
 		setcookie('password', '');
 	}

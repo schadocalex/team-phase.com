@@ -65,7 +65,7 @@
 									$_SESSION['jeton_logout'] = id(8);
 							?>
 								<span>Welcome </span>
-								<?php echo $user->username(); ?> <a href="#popup_edit_profile" class="fancybox" >[edit]</a>
+								<?php echo $user->username(); ?> <a href="#popup_edit_profile" class="fancybox" >[edit]</a> <?php if($user->is('SUPER_ADMIN')) { ?> <a href="#popup_edit_profile" class="fancybox" >[team]</a> <? } ?>
 								<a href="Logout-<?= $_SESSION['jeton_logout']; ?>" ><img class="lien_btn" src="include/img/icon/logout.png" /></a>
 							<?php } else { ?>
 								<a href="#popup_login" class="fancybox" ><img class="lien_btn" src="include/img/icon/login.png" /></a>
@@ -80,7 +80,7 @@
 							<!--<a href="http://www.ycn-hosting.com/" ><img class="sponsors_img_ycn sponsors_img" src="include/img/sponsors/ycn.png" /></a>-->
 							<a href="http://www.fragnet.net/" ><img class="sponsors_img_fg sponsors_img" src="include/img/sponsors/fragnet_w.png" /></a>
 							<a href="http://fragwise.eu/" ><img class="sponsors_img_fw sponsors_img" src="include/img/sponsors/fragwise_w.png" /></a>
-							<a href="http://fshost.me/" ><img class="sponsors_img_fg sponsors_img" src="include/img/sponsors/fshost_w.png" /></a>
+							<!-- <a href="http://fshost.me/" ><img class="sponsors_img_fg sponsors_img" src="include/img/sponsors/fshost_w.png" /></a> -->
 						</div>
 					</div>
 				</div>
