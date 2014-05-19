@@ -34,7 +34,7 @@
         <meta charset="UTF-8" />
         <title>TEAM-PHASE - Electronic Sport Team</title>
 
-        <link rel="stylesheet" href="include/css/style.css?d=<?php echo date('dm'); ?>" type="text/css" />
+        <link rel="stylesheet" href="include/css/style.css?d=<?= time() ?>" type="text/css" />
 		<link rel="stylesheet" href="include/css/jquery.fancybox.css" type="text/css" />
         <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
         <script type="text/javascript" src="include/js/jquery.min.js" ></script>
@@ -97,7 +97,7 @@
 						<a href="Tournament" >TOURNAMENT</a>
 					<?php } ?>
 					<a href="http://fr.twitch.tv/teamphase" class="shake lien_reseau_social" ><img src="include/img/tv.png" /></a>
-					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
+					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="_blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
 					<!-- <a href="#" class="shake lien_reseau_social" ><img src="include/img/fb.png" /></a> -->
 				</div>
 				<div class="red_bar" ></div>

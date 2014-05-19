@@ -87,7 +87,7 @@
 					<p class="left" ><?= $upcoming_match['name_phase'] ?></p>
 					<p class="right" ><?= $upcoming_match['name_opponent'] ?></p>
 					<div style="clear:both;" ></div>
-					<h6 class="date_upcoming" ><?= DateTime::createFromFormat('Y-m-d', $upcoming_match['date'])->format('d / m / Y'); ?></h6>
+					<h6 class="date_upcoming" ><?= DateTime::createFromFormat('Y-m-d', $upcoming_match['date'])->format('l j M Y'); ?></h6>
 					<p class="matchlink_upcoming" ><a href="<?= $upcoming_match['matchlink'] ?>" target="_blank" >matchlink</a></p>
 				</div>
 				<div id="recent_matches" class="bg8" >
@@ -119,7 +119,7 @@
 				<div style="clear:both;" ></div>
 			</div>
 			<div id="latest_video" class="bg7" >
-				<h2><a href="Medias" >LATEST VIDEO</a></h2>
+				<h2><a href="Gallery" >LATEST VIDEO</a></h2>
 				<?php foreach($videos as $video) { ?>
 					<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" rel="videos" title="<?= @$video['title'] ?>">
 						<img style="background:url('<?= srcImgYoutube($video['id_youtube']) ?>') center center;" 
@@ -131,7 +131,7 @@
 				<?php } ?>
 			</div>
 			<div id="latest_picture" class="bg8" style="text-align:center;" >
-				<h2><a href="Medias" >LATEST PICTURES</a></h2>
+				<h2><a href="Gallery" >LATEST PICTURES</a></h2>
 				<?php foreach($pictures as $picture) { ?>
 					<a href="#picture_<?= $picture['id'] ?>"
 						class="fancybox link_miniature" rel="pictures" title="<?= @$picture['title'] ?>" >
