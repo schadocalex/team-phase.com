@@ -9,7 +9,7 @@
 	$opponents = Select::all('opponent');
 	$games = Select::all('game');
 	$comments = MySQL::selectAll('comment', 1, 3);
-	$pictures = MySQL::selectAll('picture', 1, 4);
+	$pictures = MySQL::selectAll('picture', 1, 3);
 	$videos = MySQL::selectAll('video', 1, 1);
 	$upcoming_match = MySQL::selectLast('upcoming_match');
 
@@ -100,8 +100,10 @@
 							<a href="<?= $match['matchlink'] ?>" target="_blank" >
 							<span class="right">
 								<?php
-									if($match['score_phase'] <= $match['score_opponent'])
+									if($match['score_phase'] < $match['score_opponent'])
 										echo '<img class="icon_score" src="include/img/icon/lost.png" />';
+									else if($match['score_phase'] == $match['score_opponent'])
+										echo '<img class="icon_score" src="include/img/icon/draw.png" />';
 									else
 										echo '<img class="icon_score" src="include/img/icon/win.png" />';
 								?>
@@ -118,9 +120,11 @@
 				</div>
 				<div style="clear:both;" ></div>
 			</div>
+<!--
 			<div id="latest_video" class="bg7" >
 				<h2><a href="Gallery" >LATEST VIDEO</a></h2>
-				<?php foreach($videos as $video) { ?>
+<?php /*
+					foreach($videos as $video) { ?>
 					<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" rel="videos" title="<?= @$video['title'] ?>">
 						<img style="background:url('<?= srcImgYoutube($video['id_youtube']) ?>') center center;" 
 						class="miniature" src="include/img/medias/video_w.png"/>
@@ -140,6 +144,32 @@
 					</a>
 					<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
 						src="<?= srcImg($picture['image_id']) ?>" /></div>
+				<?php }
+*/ ?>
+			</div>
+-->
+			<div id="last_video" class="bg7" >
+				<h2><a href="Medias" >LATEST VIDEO</a></h2>
+				<?php foreach($videos as $video) { ?>
+					<!--
+					<div class="video" >
+						<iframe width="300" height="169" src="http://www.youtube.com/embed/<?= $video['id_youtube'] ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+				-->
+					<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" title="<?= @$video['title'] ?>" ><img class="miniature"
+					src="<?= srcImgYoutube($video['id_youtube']) ?>" /></a>
+					<div id="video<?= $video['id'] ?>" class="popup" >
+						<iframe width="853" height="480" src="//www.youtube.com/embed/<?= $video['id_youtube'] ?>" frameborder="0" allowfullscreen></iframe>
+					</div>
+				<?php } ?>
+			</div>
+			<div id="home_gallery" class="bg8" style="text-align:center;" >
+				<h2><a href="Medias" >LATEST PICTURES</a></h2>
+				<?php foreach($pictures as $picture) { ?>
+				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" rel="pictures_home" title="<?= @$picture['title'] ?>" ><img class="miniature"
+					src="<?= srcImgMin($picture['image_id']) ?>" /></a>
+				<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
+					src="<?= srcImg($picture['image_id']) ?>" /></div>
 				<?php } ?>
 			</div>
 			<div id="about_us" class="bg8" >
