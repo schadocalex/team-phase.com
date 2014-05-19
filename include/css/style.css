@@ -753,6 +753,9 @@ form  {
 				height: 240px;
 				margin-top: 30px;
 			}
+			#latest_video .miniature:hover {
+				box-shadow: 0px 0px 30px #000;
+			}
 
 		/* gallery */
 		#latest_picture {
@@ -760,6 +763,9 @@ form  {
 		}
 			#latest_picture .miniature {
 				margin: 15px;
+			}
+			#latest_picture .miniature:hover {
+				box-shadow: 0px 0px 30px #000;
 			}
 		/* About us */
 		#about_us {
@@ -1037,6 +1043,10 @@ form  {
 	width:180px;
 	height:120px;
 	margin:10px;
+}
+
+#medias .miniature:hover {
+	box-shadow: 0px 0px 30px #000;
 }
 
 #medias .link_miniature {
