@@ -12,7 +12,6 @@
 	$pictures = MySQL::selectAll('picture', 1, 4);
 	$videos = MySQL::selectAll('video', 1, 1);
 	$upcoming_match = MySQL::selectLast('upcoming_match');
-	$upcoming_match['date'] = DateTime::createFromFormat('Y-m-d', $upcoming_match['date']);
 
 	foreach($newses as $news)
 	{
@@ -88,7 +87,7 @@
 					<p class="left" ><?= $upcoming_match['name_phase'] ?></p>
 					<p class="right" ><?= $upcoming_match['name_opponent'] ?></p>
 					<div style="clear:both;" ></div>
-					<h6 class="date_upcoming" ><?= $upcoming_match['date']->format('d/m/Y'); ?></h6>
+					<h6 class="date_upcoming" ><?= DateTime::createFromFormat('Y-m-d', $upcoming_match['date'])->format('d / m / Y'); ?></h6>
 					<p class="matchlink_upcoming" ><a href="<?= $upcoming_match['matchlink'] ?>" target="_blank" >matchlink</a></p>
 				</div>
 				<div id="recent_matches" class="bg8" >
@@ -108,7 +107,7 @@
 								?>
 							</span>
 							<span class="game" ><?= dispImg($games[$match['game_id']]['icon_id']) ?></span>
-							<span class="date" ><?= $upcoming_match['date']->format('d / m / Y') ?></span>
+							<span class="date" ><?= DateTime::createFromFormat('Y-m-d', $match['date'])->format('d/m/Y') ?></span>
 							<span class="versius" >
 								phase <img id="img_vs" src="include/img/icon/vs.png" /> <!-- <em>vs</em> -->
 								<img style="margin-right:10px;" src="<?= srcFlag($opponents[$match['opponent_id']]['flag_id']) ?>">
