@@ -2,18 +2,20 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_GALLERY');
+	$user->accessRight('ADMIN_MEDIAS');
 
 	if(isset($_POST['jeton']))
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$date = $form->verify_date('date');
 		$image_id = $form->verify_image('image', 180);
+		$title = @$_POST['title'];
 
 		if($form->error == '')
 		{
 			$insert_picture = new Insert('picture');
 			$insert_picture->date = $date;
+			$insert_picture->title = $title;
 			if($image_id > 0)
 				$insert_picture->image_id = $image_id;
 			$insert_picture->execute();

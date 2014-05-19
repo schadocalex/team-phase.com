@@ -166,7 +166,7 @@
 			*	ADMIN_NEWS = 4
 			*	ADMIN_MEMBERS = 5
 			*	ADMIN_RESULTS = 6
-			*	ADMIN_GALLERY = 7
+			*	ADMIN_MEDIAS = 7
 			*	ADMIN_OTHERS = 8
 			*	ADMIN_ALL = 9
 			*	SUPER_ADMIN = 10
@@ -185,7 +185,7 @@
 				$rank = array(5,9,10,42);
 			if($s == 'ADMIN_RESULTS')
 				$rank = array(6,9,10,42);
-			if($s == 'ADMIN_GALLERY')
+			if($s == 'ADMIN_MEDIAS')
 				$rank = array(7,9,10,42);
 			if($s == 'ADMIN_OTHERS')
 				$rank = array(8,9,10,42);

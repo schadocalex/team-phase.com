@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_GALLERY');
+	$user->accessRight('ADMIN_MEDIAS');
 
 	$id = @$_GET['id'];
 	if(!MySQL::exist('picture', 'id', $id))
@@ -18,6 +18,7 @@
 		$form->verify_jeton($_POST['jeton']);
 		$date = $form->verify_date('date');
 		$image_id = $form->verify_image('image', 180);
+		$title = @$_POST['title'];
 
 		if($form->error == "")
 		{
@@ -26,6 +27,7 @@
 
 			$update = $bdd->query("UPDATE picture SET
 				image_id = \"$image_id\",
+				title = \"$title\",
 				date = \"$date\"
 				WHERE id = \"$id\"");
 
@@ -43,6 +45,7 @@
 			$form->initializeImg('edit_picture', '', 'Admin-Gallery-Edit-Picture-'.$picture['id']);
 			$form->input('image', 'Image:', 'image');
 			$form->input('date', 'Date:', 'date', $picture['date']);
+			$form->input('text', 'Title:', 'title', $picture['title']);
 			$form->end('Edit picture');
 		?>
 	</div>

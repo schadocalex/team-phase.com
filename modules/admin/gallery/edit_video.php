@@ -2,7 +2,7 @@
 	$url= '../../../';
 	include($url . 'include.php');
 
-	$user->accessRight('ADMIN_GALLERY');
+	$user->accessRight('ADMIN_MEDIAS');
 
 	$id = @$_GET['id'];
 	if(!MySQL::exist('video', 'id', $id))
@@ -19,6 +19,7 @@
 		$date = $form->verify_date('date');
 		$url_yt = @$_POST['url_youtube'];
 		$id_yt = getIdYoutube($url_yt);
+		$title = @$_POST['title'];
 
 		if(empty($url_yt))
 			$form->error('URL Youtube absente.');
@@ -28,6 +29,7 @@
 		if($form->error == "")
 		{
 			$update = $bdd->query("UPDATE video SET
+				title = \"$title\",
 				id_youtube = \"$id_yt\",
 				url_youtube = \"$url_yt\",
 				date = \"$date\"
@@ -45,6 +47,7 @@
 		<?php
 			showMessages();
 			$form->initializeImg('edit_video', '', 'Admin-Gallery-Edit-Video-'.$video['id']);
+			$form->input('text', 'Title:', 'title', $video['title']);
 			$form->input('text', 'URL Youtube (id = '.$video['id_youtube'].'):', 'url_youtube', $video['url_youtube']);
 			$form->input('date', 'Date:', 'date', $video['date']);
 			$form->end('Edit video');

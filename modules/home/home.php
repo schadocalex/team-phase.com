@@ -140,7 +140,7 @@
 			<div id="home_gallery" style="text-align:center;" >
 				<h2><a href="Medias" >LATEST PICTURES</a></h2>
 				<?php foreach($pictures as $picture) { ?>
-				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" ><img class="miniature"
+				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" rel="pictures_home" title="<?= @$picture['title'] ?>" ><img class="miniature"
 					src="<?= srcImgMin($picture['image_id']) ?>" /></a>
 				<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
 					src="<?= srcImg($picture['image_id']) ?>" /></div>
