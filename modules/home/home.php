@@ -4,13 +4,15 @@
 	
 	$i = 0;
 	$newses = Select::all('news');
-	$matches = MySQL::selectAll('match2', 1, 5);
+	$matches = MySQL::selectAll('match2', 1, 6);
 	$competitions = Select::all('competition');
 	$opponents = Select::all('opponent');
 	$games = Select::all('game');
 	$comments = MySQL::selectAll('comment', 1, 3);
-	$pictures = MySQL::selectAll('picture', 1, 3);
+	$pictures = MySQL::selectAll('picture', 1, 4);
 	$videos = MySQL::selectAll('video', 1, 1);
+	$upcoming_match = MySQL::selectLast('upcoming_match');
+	$upcoming_match['date'] = DateTime::createFromFormat('Y-m-d', $upcoming_match['date']);
 
 	foreach($newses as $news)
 	{
@@ -77,39 +79,27 @@
 			</div>
 		</div>
 			<div id="div_last_matches" >
-				<div id="upcoming_match" >
+				<div id="upcoming_match" class="bg7" >
 					<h2>UPCOMING MATCH</h2>
-					<img class="left" src="include/img/logo_square.png" />
-					<img class="right" src="include/img/logo_square_defaut.png" />
-					<!-- <img class="right" src="http://snsejsave.info/raw.png" /> -->
+					<img class="left team team_phase" src="<?= srcImg($upcoming_match['image_phase_id']) ?>" />
+					<img class="right team team_vs" src="<?= srcImg($upcoming_match['image_opponent_id']) ?>" />
+					<img class="versus" src="include/img/upcoming/versus.png" />
 					<div style="clear:both;" ></div>
-					<p class="left team_phase" >phase</p>
-					<p class="right team_vs" ></p>
+					<p class="left" ><?= $upcoming_match['name_phase'] ?></p>
+					<p class="right" ><?= $upcoming_match['name_opponent'] ?></p>
+					<div style="clear:both;" ></div>
+					<h6 class="date_upcoming" ><?= $upcoming_match['date']->format('d/m/Y'); ?></h6>
+					<p class="matchlink_upcoming" ><a href="<?= $upcoming_match['matchlink'] ?>" target="_blank" >matchlink</a></p>
 				</div>
-				<div id="last_matches" class="right" >
+				<div id="recent_matches" class="bg8" >
 					<h2><a href="Results" >RECENT MATCHES</a></h2>
 					<?php $first = true; foreach($matches as $match) { ?>
 						<?php
 							if($first) $first = false; else echo '<hr />';
-
-							/*
-							$color = ($match['score_phase'] > $match['score_opponent'])? 'win' : 'defeat';
-							$color = ($match['score_phase'] == $match['score_opponent'])? 'draw' : $color;
-							*/
 						?>
 						<p class="last_match" >
 							<a href="<?= $match['matchlink'] ?>" target="_blank" >
-							<!-- <span class="score score_<?= $color ?>">
-								<?php /*
-									if($match['score_phase'] < 0 OR $match['score_opponent'] < 0)
-										echo 'Forfeit';
-									else
-										echo $match['score_phase'].' - '.$match['score_opponent'];
-										*/
-								?>
-							</span>
-						-->
-							<span class="">
+							<span class="right">
 								<?php
 									if($match['score_phase'] <= $match['score_opponent'])
 										echo '<img class="icon_score" src="include/img/icon/lost.png" />';
@@ -118,7 +108,7 @@
 								?>
 							</span>
 							<span class="game" ><?= dispImg($games[$match['game_id']]['icon_id']) ?></span>
-							<span class="date" ><?= DateTime::createFromFormat('Y-m-d', $match['date'])->format('d/m/Y') ?></span>
+							<span class="date" ><?= $upcoming_match['date']->format('d / m / Y') ?></span>
 							<span class="versius" >
 								phase <img id="img_vs" src="include/img/icon/vs.png" /> <!-- <em>vs</em> -->
 								<img style="margin-right:10px;" src="<?= srcFlag($opponents[$match['opponent_id']]['flag_id']) ?>">
@@ -129,24 +119,31 @@
 				</div>
 				<div style="clear:both;" ></div>
 			</div>
-			<div id="last_video" >
+			<div id="latest_video" class="bg7" >
 				<h2><a href="Medias" >LATEST VIDEO</a></h2>
 				<?php foreach($videos as $video) { ?>
-					<div class="video" >
-						<iframe width="380" height="214" src="http://www.youtube.com/embed/<?= $video['id_youtube'] ?>?rel=0" frameborder="0" allowfullscreen></iframe>
+					<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" rel="videos" title="<?= @$video['title'] ?>">
+						<img style="background:url('<?= srcImgYoutube($video['id_youtube']) ?>') center center;" 
+						class="miniature" src="include/img/medias/video_w.png"/>
+					</a>
+					<div id="video<?= $video['id'] ?>" class="popup" >
+						<iframe width="853" height="480" src="//www.youtube.com/embed/<?= $video['id_youtube'] ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
 				<?php } ?>
 			</div>
-			<div id="home_gallery" style="text-align:center;" >
+			<div id="latest_picture" class="bg8" style="text-align:center;" >
 				<h2><a href="Medias" >LATEST PICTURES</a></h2>
 				<?php foreach($pictures as $picture) { ?>
-				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" rel="pictures_home" title="<?= @$picture['title'] ?>" ><img class="miniature"
-					src="<?= srcImgMin($picture['image_id']) ?>" /></a>
-				<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
-					src="<?= srcImg($picture['image_id']) ?>" /></div>
+					<a href="#picture_<?= $picture['id'] ?>"
+						class="fancybox link_miniature" rel="pictures" title="<?= @$picture['title'] ?>" >
+						<img style="background:url('<?= srcImgMin($picture['image_id']) ?>') center center;" 
+						class="miniature" src="include/img/medias/picture_w.png"/>
+					</a>
+					<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
+						src="<?= srcImg($picture['image_id']) ?>" /></div>
 				<?php } ?>
 			</div>
-			<div id="about_us" >
+			<div id="about_us" class="bg8" >
 				<h2>ABOUT US</h2>
 				<p style="text-align: center;" >
 					TEAM-PHASE was founded in May 2013 by two close friends:<br /> Côme "aacid" M & Pierre-Antoine "drkje" Dubard.<br />
@@ -156,7 +153,7 @@
 					well as other leagues.
 				</p>
 			</div>
-			<div id="latest_comment" >
+			<div id="latest_comment" class="bg7"  >
 				<h2>LATEST COMMENTS</h2>
 				<?php
 					$first = true;

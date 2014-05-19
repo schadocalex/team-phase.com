@@ -54,4 +54,13 @@
 
 			return $champs;
 		}
+
+		public static function selectLast($table, $where = '1')
+		{
+			$bdd = self::getInstance();
+			$limit = "LIMIT 1";
+			$champs = $bdd->query('SELECT '.getSelectWhat($table).' FROM '.$table.' WHERE '.$where.' '.getSelectOrder($table).' '.$limit)->fetchAll();
+
+			return $champs[0];
+		}
 	}

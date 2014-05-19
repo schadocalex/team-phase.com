@@ -15,6 +15,8 @@
 			return 'ORDER BY name ASC';
 		if($table == 'competition')
 			return 'ORDER BY name ASC';
+		if($table == 'upcoming_match')
+			return 'ORDER BY id DESC';
 
 		return '';
 	}

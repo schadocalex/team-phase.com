@@ -105,7 +105,25 @@ hr {  margin: 6px 0 6px 0; }
 	padding: 10px 20px 10px 20px;
 	border-bottom: 5px solid #800;
 }
-.bg4:hover, .bg5:hover, .bg6:hover {
+.bg7 {
+	background: rgba(16,16,16,0.9);
+	border-radius: 5px;
+	width: 359px;
+	margin: 0 0 3px 1px;
+	float: left;
+	padding: 10px 20px 10px 20px;
+	border-bottom: 5px solid #800;
+}
+.bg8 {
+	background: rgba(16,16,16,0.9);
+	border-radius: 5px;
+	width: 456px;
+	margin: 0 0 3px 1px;
+	float: right;
+	padding: 10px 20px 10px 20px;
+	border-bottom: 5px solid #800;
+}
+.bg4:hover, .bg5:hover, .bg6:hover, .bg7:hover, .bg8:hover {
 	border-bottom: 5px solid #a00;
 	background: rgba(16,16,16,0.8);
 }
@@ -601,80 +619,66 @@ form  {
 							left: 0px;
 						}
 	
-	/* Div_last_matches */
-	#div_last_matches {
-		width: 916px;
-		margin: 0 0 0 0;
+	/* Div_recent_matches */
+	#div_recent_matches {
+		
 	}
 		/* Upcoming match */
 		#upcoming_match {
-			background: rgba(16,16,16,0.9) url('../img/last_matches/bg_upcoming_match.png') no-repeat center 0;
-			border-radius: 5px;
-			width: 319px;
-			height: 180px;
-			margin: 0 0 2px 1px;
-			float: left;
-			padding-left: 40px;
-			padding-right: 40px;
-			border-bottom: 5px solid #800;
+			text-align: center;
+			height: 205px;
 		}
-		#upcoming_match:hover {
-			border-bottom: 5px solid #a00;
-			background: rgba(16,16,16,0.8) url('../img/last_matches/bg_upcoming_match.png') no-repeat center 0;
-		}
-			#upcoming_match img {
+			#upcoming_match .team {
 				width: 78px;
 				height: 78px;
 				border-radius: 2px;
 			}
+			#upcoming_match .versus {
+				margin-top: 36px;
+			}
 			#upcoming_match p {
-				width: 100px;
+				width: 120px;
 				margin: 0;
 				margin-top: 5px;
 				text-align: center;
-				font-size: 12px;
-				position: relative;
+				font-size: 14px;
 			}
 			#upcoming_match .team_phase {
-				right: 10px;
+				margin-left: 20px;
 			}
 			#upcoming_match .team_vs {
-				left: 10px;
+				margin-right: 20px;
 			}
+		#upcoming_match .date_upcoming {
+			font-size: 20px;
+			text-align: center;
+			margin-top: 10px;
+			font-weight: normal;
+			color: #c00;
+		}
+		#upcoming_match .matchlink_upcoming {
+			width: 100%;
+			font-size: 12px;
+			text-align: center;
+		}
 		/* last matches */
-		#last_matches {
-			background: rgba(16,16,16,0.9);
-			border-radius: 5px;
-			width: 476px;
-			height: 180px;
-			margin: 0;
-			margin-right: 2px;
-			padding-left: 10px;
-			padding-right: 10px;
-			position: relative;
-			left: -15px;
-			border-bottom: 5px solid #800;
+		#recent_matches {
+			height: 205px;
 		}
-		#last_matches:hover {
-			border-bottom: 5px solid #a00;
-			background: rgba(16,16,16,0.8);
-		}
-			#last_matches .last_match {
+			#recent_matches .last_match {
 				display: block;
 				height: 20px;
 				line-height: 20px;
 				font-size: 12px;
 				margin: 0;
-				padding-left: 10px;
-				padding-right: 10px;
 			}
-				#last_matches .last_match a:hover{
+				#recent_matches .last_match a:hover{
 					color: inherit;
 				}
-				#last_matches .last_match:hover{
+				#recent_matches .last_match:hover{
 					background-color: #222;
 				}
-				#last_matches .last_match .game {
+				#recent_matches .last_match .game {
 					float: left;
 					width: 20px;
 					text-align: left;
@@ -682,171 +686,103 @@ form  {
 					position: relative;
 					top: 1px;
 				}
-					#last_matches .last_match .game img {
+					#recent_matches .last_match .game img {
 						
 					}
-				#last_matches .last_match .date {
+				#recent_matches .last_match .date {
 					float: left;
 					width: 100px;
 					text-align: left;
 					height: 20px;
 				}
-				#last_matches .last_match .versius {
+				#recent_matches .last_match .versius {
 					float: left;
 					width: 275px;
 					text-align: left;
 				}
-					#last_matches .last_match .versius em {
+					#recent_matches .last_match .versius em {
 						color: #ccc;
 						margin-left: 10px;
 						margin-right: 10px;
 					}
-					#last_matches .last_match .versius img {
+					#recent_matches .last_match .versius img {
 						position:relative;
 						top:1px;
 						left:4px;
 					}
-					#last_matches .last_match .versius #img_vs {
+					#recent_matches .last_match .versius #img_vs {
 						width: 16px;
 						position:relative;
 						top:3px;
 						margin: 0 4px 0 1px;
 					}
-				#last_matches .last_match .score {
+				#recent_matches .last_match .score {
 					float: right;
 					width: 55px;
 					text-align: right;
 					font-weight: bold;
 				}
-					#last_matches .last_match .score_win {
+					#recent_matches .last_match .score_win {
 						color: green;
 					}
-					#last_matches .last_match .score_defeat {
+					#recent_matches .last_match .score_defeat {
 						color: red;
 					}
-					#last_matches .last_match .score_draw {
+					#recent_matches .last_match .score_draw {
 						color: blue;
 					}
-				#last_matches  hr {
+				#recent_matches  hr {
 					background-color: #999;
 					height: 1px;
 					border: none;
 					margin: 3px 0 3px 0;
 				}
-				#last_matches .icon_score {
+				#recent_matches .icon_score {
 					position: relative;
 					top: 2px;
 				}
-		/* last_video */
-		#last_video {
-			background: rgba(16,16,16,0.9) url('../img/last_matches/bg_upcoming_match.png') no-repeat center 0;
-			border-radius: 5px;
-			width: 389px;
-			height: 270px;
-			margin: 1px 0 1px 1px;
-			padding-left: 10px;
-			float: left;
-			border-bottom: 5px solid #800;
+		/* latest_video */
+		#latest_video {
+			height: 350px;
 		}
-		#last_video:hover {
-			border-bottom: 5px solid #a00;
-			background: rgba(16,16,16,0.8);
-		}
-		
+			#latest_video .miniature {
+				width: 360px;
+				height: 240px;
+				margin-top: 30px;
+			}
+
 		/* gallery */
-		#home_gallery {
-			background: rgba(16,16,16,0.9);
-			border-radius: 5px;
-			width: 476px;
-			height: 270px;
-			margin: 1px 0 1px 0;
-			padding-left: 10px;
-			padding-right: 10px;
-			float: right;
-			position: relative;
-			left: -1px;
-			border-bottom: 5px solid #800;
+		#latest_picture {
+			height: 350px;
 		}
-		#home_gallery:hover {
-			border-bottom: 5px solid #a00;
-			background: rgba(16,16,16,0.8);
-		}
-		
-			#home_gallery .miniature {
-				min-width:140px;
-				min-height:140px;
-				max-width:210px;
-				max-height:210px;
+			#latest_picture .miniature {
+				margin: 15px;
 			}
-			#home_gallery .link_miniature {
+		/* About us */
+		#about_us {
+			height: 170px;
+		}
+
+		/* latest_comment */
+		#latest_comment {
+			height: 170px;
+		}
+			#latest_comment hr {
+				background-color: #999;
+				height: 1px;
+				border: none;
+				margin: 5px 0 5px 0;
+			}
+			#latest_comment span {
+				color: #aaa;
+			}
+			#latest_comment a {
 				display: block;
-				margin-bottom: 5px;
-				width: 140px;
-				height: 140px;
-				overflow: hidden;
-				float: left;
-				margin: 30px 5px 5px 9px;
-				position: relative;
-				left: 5px;
+				width: 100%;
 			}
-				#home_gallery .link_miniature img{
-					position: relative;
-					top: 0px;
-					left: -20px;
-				}
-			.img_popup {
-				max-width: 800px;
-				max-height: 400px;
+			#latest_comment a:hover {
+				background-color: #222;
 			}
-
-	/* About us */
-	#about_us {
-		background: rgba(16,16,16,0.9);
-		border-radius: 5px;
-		width: 476px;
-		height: 170px;
-		margin: 2px 0 1px 0;
-		padding: 0 10px 0 10px;
-		float: right;
-		position: relative;
-		left: -1px;
-		border-bottom: 5px solid #800;
-	}
-	#about_us:hover {
-		border-bottom: 5px solid #a00;
-		background: rgba(16,16,16,0.8);
-	}
-
-	#latest_comment {
-		background: rgba(16,16,16,0.9);
-		border-radius: 5px;
-		width: 379px;
-		height: 170px;
-		margin: 2px 0 1px 1px;
-		padding: 0 10px 0 10px;
-		float: left;
-		border-bottom: 5px solid #800;
-	}
-	#latest_comment:hover {
-		border-bottom: 5px solid #a00;
-		background: rgba(16,16,16,0.8);
-	}
-		#latest_comment hr {
-			background-color: #999;
-			height: 1px;
-			border: none;
-			margin: 5px 0 5px 0;
-		}
-		#latest_comment span {
-			color: #aaa;
-		}
-		#latest_comment a {
-			display: block;
-			width: 100%;
-		}
-		#latest_comment a:hover {
-			background-color: #222;
-		}
 /* News */
 .img_news_left {
 	float: left;

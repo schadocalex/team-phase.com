@@ -53,4 +53,6 @@ RewriteRule ^Admin-Gallery-Edit-Picture-([0-9]+)$ /team-phase.com/modules/admin/
 RewriteRule ^Admin-Gallery-Add-Video$ /team-phase.com/modules/admin/gallery/add_video.php [L]
 RewriteRule ^Admin-Gallery-Edit-Video-([0-9]+)$ /team-phase.com/modules/admin/gallery/edit_video.php?id=$1 [L]
 
+RewriteRule ^Admin-Others$ /team-phase.com/modules/admin/admin_others.php [L]
+
 RewriteRule ^Access-Denied$ /team-phase.com/modules/error/access_denied.php [L]
