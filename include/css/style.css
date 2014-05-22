@@ -526,7 +526,6 @@ form  {
 	}
 	#slider:hover {
 		border-bottom: 5px solid #a00;
-		background: rgba(16,16,16,0.8);
 	}
 		#slider p {
 			font-size: 10px;
