@@ -483,11 +483,15 @@ form  {
 	padding: 0;
 	border-bottom: 2px solid #c00;
 }
-	#footer  p{
+	#footer p {
 		margin: 0;
-		font-size: 12px;
+		width: 916px;
+		text-align: center;
+		padding: 5px;
+		vertical-align: top;
 		line-height: 20px;
-		color: #aaa;
+		color: #ccc;
+		font-size: 12px;
 	}
 	#footer span {
 		color: #fff;
@@ -501,16 +505,6 @@ form  {
 			text-align: center;
 			padding-top: 10px;
 			margin: 0;
-		}
-		#footer  p {
-			width: 916px;
-			text-align: center;
-			padding: 5px;
-			vertical-align: top;
-			line-height: 20px;
-			
-			font-size: 11px;
-			color: #ccc;
 		}
 
 /** Home **/
@@ -978,6 +972,12 @@ form  {
 			}
 		#results tr {
 			cursor: pointer;
+		}
+		#results .tr1 {
+			background-color: #000;
+		}
+		#results .tr0 {
+			background-color: #000;
 		}
 		#results tr:hover {
 			background-color: #222;
