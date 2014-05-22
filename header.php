@@ -66,7 +66,7 @@
 							?>
 								<span>Welcome </span>
 								<?php echo $user->username(); ?> <a href="#popup_edit_profile" class="fancybox" >[edit]</a>
-								<?php if($user->is('SUPER_ADMIN')) { ?> <a href="#popup_edit_profile" class="fancybox" >[team]</a> <?php } ?>
+								<?php if($user->is('SUPER_ADMIN')) { ?> <a href="#popup_team" class="fancybox" >[team]</a> <?php } ?>
 								<a href="Logout-<?= $_SESSION['jeton_logout']; ?>" ><img class="lien_btn" src="include/img/icon/logout.png" /></a>
 							<?php } else { ?>
 								<a href="#popup_login" class="fancybox" ><img class="lien_btn" src="include/img/icon/login.png" /></a>

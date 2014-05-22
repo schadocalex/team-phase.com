@@ -33,5 +33,6 @@
 				Go to the profile page
 			</a>
 		</div>
+		<div id="popup_team" class="popup" ><?php include('modules/tournament/team_embedded.php');?></div>
     </body>
 </html>
