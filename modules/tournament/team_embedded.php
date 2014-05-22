@@ -12,4 +12,4 @@ You can also create your own team:<br />
 	$form->input('text', 'Website:', 'website');
 	$form->end('Create team');
 ?>
-If you want to join a existing team, ask a member of it to invite you.
+If you want to join an existing team, ask a member from it to invite you.
