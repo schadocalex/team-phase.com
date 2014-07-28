@@ -23,7 +23,7 @@
 	function getSelectWhat($table)
 	{
 		if($table == 'user')
-			return 'id,email,username,country_id,ip';
+			return 'id,email,username,country_id,ip,last_visit';
 
 		return '*';
 	}

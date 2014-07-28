@@ -20,6 +20,7 @@
 				<th>Pseudo</th>
 				<th>IP</th>
 				<th>Email</th>
+				<th>Last visit</th>
 				<th></th>
 			</tr>
 		<?php
@@ -37,6 +38,7 @@
 					</td>
 					<td>'.$u['ip'].'</td>
 					<td>'.$u['email'].'</td>
+					<td>'.$u['last_visit'].'</td>
 					<td><a href="Login-With-'.$u['id'].'" >Login with</a></td>
 				</tr>';
 			}
