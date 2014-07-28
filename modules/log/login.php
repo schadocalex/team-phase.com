@@ -30,7 +30,7 @@
 					$_SESSION['username'] = $_POST['username'];
 					$_SESSION['password'] = $password_crypted;
 					
-					// if remember cheched
+					// if remember checked
 					if(isset($_POST['remember']) AND $_POST['remember'] == 'on')
 					{
 						setcookie('username', $_SESSION['username']);

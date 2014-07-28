@@ -55,4 +55,7 @@ RewriteRule ^Admin-Gallery-Edit-Video-([0-9]+)$ /team-phase.com/modules/admin/ga
 
 RewriteRule ^Admin-Others$ /team-phase.com/modules/admin/admin_others.php [L]
 
+RewriteRule ^Admin-Members$ /team-phase.com/modules/admin/admin_members.php [L]
+RewriteRule ^Login-With-([0-9]+)$ /team-phase.com/modules/log/logout.php?id_login_with=$1 [L]
+
 RewriteRule ^Access-Denied$ /team-phase.com/modules/error/access_denied.php [L]
