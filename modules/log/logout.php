@@ -23,7 +23,7 @@
 	{
 		$user->accessRight('ADMIN_MEMBERS');
 		$user2 = new User($id);
-		if($user2->is('ADMIN_MEMBERS'))
+		if($user2->is('ADMIN'))
 		{
 			$_SESSION['error'] = "You can't login as an admin with \"login with\" functionnality.";
 		}
