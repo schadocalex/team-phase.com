@@ -687,7 +687,7 @@ form  {
 					text-align: left;
 					height: 20px;
 					position: relative;
-					top: 1px;
+					top: 3px;
 				}
 					#recent_matches .last_match .game img {
 						
@@ -697,11 +697,15 @@ form  {
 					width: 100px;
 					text-align: left;
 					height: 20px;
+					position: relative;
+					top: 1px;
 				}
 				#recent_matches .last_match .versius {
 					float: left;
 					width: 275px;
 					text-align: left;
+					position: relative;
+					top: -1px;
 				}
 					#recent_matches .last_match .versius em {
 						color: #ccc;
