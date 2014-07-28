@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>TEAM-PHASE - Electronic Sport Team - Home</title>
+        <title>TEAM-PHASE - Electronic Sports Team - Home</title>
         			<link rel="stylesheet" href="include/css/style.css" type="text/css" />
 			<link rel="stylesheet" href="include/css/jquery.fancybox.css" type="text/css" />
     	        <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico" /> -->
@@ -36,7 +36,6 @@
 					<a href="#" >RESULTS</a>
 					<a href="#" >MEDIAS</a>
 					<a href="#" >PHASETV</a><em id="status_phastv"> OFF</em>
-					<a href="http://fr.twitch.tv/teamphase" class="shake lien_reseau_social" ><img src="include/img/tv.png" /></a>
 					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
 					<a href="#" class="shake lien_reseau_social" ><img src="include/img/fb.png" /></a>
 				</div>

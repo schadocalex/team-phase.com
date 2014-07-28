@@ -15,6 +15,20 @@
 		<div id="awards" class="bg4" >
 			<h2>AWARDS</h2>
 			<table>
+				</tr>
+				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
+				<tr onclick="window.open('http://eu.cybergamer.com/bracket/38/CG-EU-ET-Season-1-6on6-Div-1/')">
+					<td class="game" ><img src="include/img/games/et.gif"></td>
+					<td class="date" >15/06/2014</td>
+					<td class="award" ><img src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 6on6 Division 1</td>
+				</tr>
+				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
+				<tr onclick="window.open('http://eu.cybergamer.com/bracket/43/CG-EU-ET-Season-1-3on3-Div-1/')">
+					<td class="game" ><img src="include/img/games/et.gif"></td>
+					<td class="date" >15/06/2014</td>
+					<td class="award" ><img src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 3on3 Division 1</td>
+				</tr>
+				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://eu.cybergamer.com/forums/thread/542557/Granted-come-out-victorious-and-take-the-100-prize/')">
 					<td class="game" ><img src="include/img/games/cod4.gif"></td>
 					<td class="date" >27/04/2014</td>
@@ -42,30 +56,13 @@
 				<tr onclick="window.open('http://www.crossfire.nu/news/8300/cb-et-summer-2013-winners')" >
 					<td class="game" ><img src="include/img/games/et.gif"></td>
 					<td class="date" >22/09/2013</td>
-					<td class="award" ><img src="include/img/awards/gold.png" /> Enemy Territory Clanbase 3on3 Summer Cup Premier league 2013</td>
-				</tr>
+					<td class="award" ><img src="include/img/awards/gold.png" /> Enemy Territory Clanbase 3on3 Summer Cup Premier league 2013</td></tr>
 			</table>
 			<br />
 		</div>
 		<div id="matches" class="bg4" >
 			<h2>MATCHES<br/>
 				<span style="font-size:10px;font-weight:normal;" >
-					(we don't add OneDayCup results)<br/>
-					<?php
-						
-						$requete_matches_won = $bdd->prepare('SELECT COUNT(*) AS won FROM match2 WHERE score_phase > score_opponent');
-						$requete_matches_won->execute();
-						$requete_matches_won = $requete_matches_won->fetch();
-						$matches_won = $requete_matches_won['won'];
-						
-						$requete_total_matches = $bdd->prepare('SELECT COUNT(*) AS total_matches FROM match2');
-						$requete_total_matches->execute();
-						$requete_total_matches = $requete_total_matches->fetch();
-						$total_matches = $requete_total_matches['total_matches'];
-						
-						$victory_percent = ($matches_won/$total_matches)*100;
-						echo round($victory_percent) . '% matches won (' . $matches_won . '/' . $total_matches . ')';
-					?>
 					
 				</span>
 			</h2>

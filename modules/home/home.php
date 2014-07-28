@@ -26,7 +26,6 @@
 	}
 	include($url."header.php");
 ?>
-
 		<div id="slider" >
 			<div class="slider left" >
 			<?php
@@ -149,7 +148,7 @@
 			</div>
 -->
 			<div id="last_video" class="bg7" >
-				<h2><a href="Medias" >LATEST VIDEO</a></h2>
+				<h2><a href="Gallery" >LATEST VIDEO</a></h2>
 				<?php foreach($videos as $video) { ?>
 					<!--
 					<div class="video" >
@@ -164,7 +163,7 @@
 				<?php } ?>
 			</div>
 			<div id="home_gallery" class="bg8" style="text-align:center;" >
-				<h2><a href="Medias" >LATEST PICTURES</a></h2>
+				<h2><a href="Gallery" >LATEST PICTURES</a></h2>
 				<?php foreach($pictures as $picture) { ?>
 				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" rel="pictures_home" title="<?= @$picture['title'] ?>" ><img class="miniature"
 					src="<?= srcImgMin($picture['image_id']) ?>" /></a>
@@ -175,11 +174,11 @@
 			<div id="about_us" class="bg8" >
 				<h2>ABOUT US</h2>
 				<p style="text-align: center;" >
-					TEAM-PHASE was founded in May 2013 by two close friends:<br /> Côme "aacid" M & Pierre-Antoine "drkje" Dubard.<br />
-					Back to gaming after a long break, we started out with Call of Duty 4 and Wolfenstein: Enemy Territory
-					and now support teams in Return to Castle Wolfenstein and Shootmania Storm also. Our goal is to have a
-					stable and serious organization with active FPS teams competing in cups and ladders on CyberGamer as
-					well as other leagues.
+					TEAM-PHASE was founded in May 2013 by Côme "aacid" M & Pierre-Antoine "drkje" Dubard.
+					The organisation is primarily focussed on supporting top FPS teams competiting both online and offline at LAN events across Europe.
+					Our goal is to turn TEAM-PHASE into a household gaming brand that is recognised throughout the world.
+					If you are interested in joining TEAM-PHASE:<br>
+					<a href="mailto:contact@team-phase.com" >contact@team-phase.com</a>
 				</p>
 			</div>
 			<div id="latest_comment" class="bg7"  >

@@ -8,10 +8,11 @@
 	<div class="bg4" >
 		<img src="include/img/bans/management.png" />
 		<p class="teams_members" >
-			<img src="include/img/flag/fr.png" /> Côme "<strong>aacid</strong>" M. (Founder)				<br />
+			<img src="include/img/flag/fr.png" /> Côme "<strong>aacid</strong>" M. (Founder/Designer)				<br />
 			<img src="include/img/flag/fr.png" /> Pierre "<strong>drkje</strong>" Dubard (Founder)		<br />
 			<img src="include/img/flag/be.png" /> Kevin "<strong>badkip</strong>" Coenegrachts (Moviemaker)				<br />
 			<img src="include/img/flag/us.png" /> Jon "<strong>ohurcool</strong>" T. (Newswriter)	<br />
+			<img src="include/img/flag/de.png" /> Nabil "<strong>reflex</strong>" Harb (Server admin)	<br />
 			<img src="include/img/flag/fr.png" /> Alexis "<strong>schadocalex</strong>" Schad (Webmaster)	<br />
 		</p>
 	</div>
@@ -34,20 +35,16 @@
 			<img src="include/img/flag/cz.png" /> Vaclav "<strong>Fraz</strong>" Stekr		<br />
 			<img src="include/img/flag/pl.png" /> Kamil "<strong>hitOnnz</strong>" Kowaleczko	<br />
 			<img src="include/img/flag/pl.png" /> Kamil "<strong>r0lka</strong>" Plowik		<br />
-			<img src="include/img/flag/de.png" /> Flo "<strong>remix</strong>" L	<br />
+			<img src="include/img/flag/pl.png" /> Piotr "<strong>dEvianCe</strong>" Antoszkiewicz <br />
 			<img src="include/img/flag/gb.png" /> Lee "<strong>Blackout</strong>" Parsons<br />
 		</p>
-	</div>
-	<div class="bg4" >
+	</div>	<div class="bg4" >
 		<img src="include/img/bans/cod2.png" />
 		<p class="teams_members" >
-	<img src="include/img/flag/fr.png" /> Fayssal "<strong>Flyer</strong>" <br />
-	<img src="include/img/flag/fr.png" /> Gregoire "<strong>yNNNNN</strong>" Larrives <br />
-	<img src="include/img/flag/fr.png" /> Julien "<strong>kim</strong>" Felten<br />
-	<img src="include/img/flag/fr.png" /> Mickael "<strong>Losczy</strong>" Boine<br />
-	<img src="include/img/flag/fr.png" /> Nans "<strong>victory</strong>" Harua<br />
-	<img src="include/img/flag/fr.png" /> Nathan "<strong>SHOGOZER</strong>" Boine<br />
-	<img src="include/img/flag/fr.png" /> Timothée "<strong>vAkarm</strong>" Krust<br />
+			<img src="include/img/flag/fr.png" /> Romain "<strong>FLEX</strong>" Lemaitte			<br />
+			<img src="include/img/flag/fr.png" /> Frederic "<strong>fredragon</strong>" Wepierre		<br />
+			<img src="include/img/flag/fr.png" /> Enrique "<strong>NRQ</strong>" Sauvage	<br />
+			<img src="include/img/flag/fr.png" /> Nathan  "<strong>SHOGOZER</strong>" Boine		<br />
 		</p>
 	</div>
 	<div class="bg4" >

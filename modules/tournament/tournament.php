@@ -67,7 +67,7 @@
 	</div>
 	<div class="bg4" >
 		<h2>RULES<span style="color:red;" >!</span></h2>
-		<p>
+		<p><center>
 			<span style="color:red;" >1</span>) All participants are required to register at www.team-phase.com. A player's nickname on the website needs to match a player's in-game nickname.
 		</p>
 		<p>
@@ -93,7 +93,7 @@
 			<span style="color:red;" >8</span>) During the group stage the winning teams will receive 1 point per win. The losing team won't receive any points.
 			<br />If by the end of the group stage several teams have the same amount of points their positions will be determined by the results of the games where the teams with the same amount of points played each other. Naturally the winning team will get the higher position.
 			<br />The first and second placed teams in each group will advance to the winners bracket playoffs.
-		</p>
+		</center></p>
 	</div>
 	<!--
 	<div class="bg4" >

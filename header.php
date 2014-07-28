@@ -32,10 +32,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>TEAM-PHASE - Electronic Sport Team</title>
+        <title>TEAM-PHASE - Electronic Sports Team</title>
 
         <link rel="stylesheet" href="include/css/style.css?d=<?= time() ?>" type="text/css" />
 		<link rel="stylesheet" href="include/css/jquery.fancybox.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Oswald:300,400' rel='stylesheet' type='text/css'>
         <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
         <script type="text/javascript" src="include/js/jquery.min.js" ></script>
 		<script type="text/javascript" src="include/js/functions.js" ></script>
@@ -91,13 +92,13 @@
 					<a href="Teams" >TEAMS</a>
 					<a href="Results" >RESULTS</a>
 					<a href="Gallery" >GALLERY</a>
-					<a href="Phasetv" >PHASETV</a><em id="status_phastv"> OFF</em>
+					<a href="Phasetv" >PHASETV</a>
 					<a href="Sponsors" >SPONSORS</a>
 					<?php if($user->is('SUPER_ADMIN')) { ?>
 						<a href="Tournament" >TOURNAMENT</a>
 					<?php } ?>
-					<a href="http://fr.twitch.tv/teamphase" target="_blank" class="shake lien_reseau_social" ><img src="include/img/tv.png" /></a>
 					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="_blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
+					<a href="https://twitter.com/theteamphase" target="_blank" class="shake lien_reseau_social" ><img src="include/img/tw.png" /></a>
 					<!-- <a href="#" class="shake lien_reseau_social" ><img src="include/img/fb.png" /></a> -->
 				</div>
 				<div class="red_bar" ></div>
