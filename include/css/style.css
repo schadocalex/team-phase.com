@@ -488,19 +488,18 @@ form  {
 		line-height: 20px;
 		color: #ccc;
 		font-size: 12px;
-		float: left;
 	}
 	#footer .legal {
-		width: 657px;
-		text-align: left;
+		width: 886px;
+		text-align: center;
 	}
 	#footer .social {
 		width: 199px;
 		text-align: center;
 	}
 	#footer .lien_reseau_social {
-		padding-top: 35px;
-		margin: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 	#footer span {
 		color: #fff;
