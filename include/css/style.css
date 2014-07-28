@@ -483,13 +483,24 @@ form  {
 }
 	#footer p {
 		margin: 0;
-		width: 916px;
-		text-align: center;
-		padding: 5px;
-		vertical-align: top;
+		/* 916 687 458 229 */
+		padding: 15px;
 		line-height: 20px;
 		color: #ccc;
 		font-size: 12px;
+		float: left;
+	}
+	#footer .legal {
+		width: 657px;
+		text-align: left;
+	}
+	#footer .social {
+		width: 199px;
+		text-align: center;
+	}
+	#footer .lien_reseau_social {
+		padding-top: 40px;
+		margin: 10px;
 	}
 	#footer span {
 		color: #fff;
