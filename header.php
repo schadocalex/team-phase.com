@@ -42,8 +42,22 @@
 		<script type="text/javascript" src="include/js/functions.js" ></script>
 		<script type="text/javascript" src="include/js/slider.js" ></script>
 		<script type="text/javascript" src="include/js/jquery.fancybox.js" ></script>
-    </head>
+
+		<?= @$fb_share_meta_tags ?>
+	</head>
     <body>
+
+    	<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.0";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		
 		<div id="body" >
 				<div id="header" >
 					<div id="header_bartop" class="bg1" >

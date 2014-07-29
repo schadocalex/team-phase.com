@@ -13,6 +13,7 @@ RewriteRule ^Home$ /team-phase.com/modules/home/home.php [L]
 
 RewriteRule ^News$ /team-phase.com/modules/news/news.php [L]
 RewriteRule ^News-([0-9]+)$ /team-phase.com/modules/news/news.php?id=$1 [L]
+RewriteRule ^Share-News-([0-9]+)$ /team-phase.com/modules/news/news.php?id=$1&share=1 [L]
 RewriteRule ^Teams$ /team-phase.com/modules/teams/teams.php [L]
 RewriteRule ^Results$ /team-phase.com/modules/results/results.php [L]
 RewriteRule ^Gallery$ /team-phase.com/modules/gallery/gallery.php [L]

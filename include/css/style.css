@@ -931,6 +931,17 @@ form  {
 			background-color: #800;
 			margin: 2px 0 2px 0;
 		}
+
+	.share_buttons {
+		clear: both;
+		text-align: center;
+		padding-top: 15px;
+		height: 20px;
+	}
+	.share_buttons .fb-share-button {
+		position: relative;
+		top: -3px;
+	}
 /* Teams */
 	#teams {
 		margin: 0;

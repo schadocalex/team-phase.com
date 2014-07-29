@@ -43,6 +43,29 @@
 	}
 	$newses = Select::all('news');
 
+	if(!empty($news_id)) 
+	{
+		$news_to = @$newses[$news_id];
+		if(!empty($news_to))
+		{
+			if(!empty($_GET['share']))
+			{
+				$title_canonical = getCanonical($news_to['title']);
+				$url_news = 'News-'.$news_to['id'].'#'.$title_canonical;
+				$user->redirect($url_news);
+			}
+			else
+			{
+				$fb_share_meta_tags = '
+				<meta property="og:url" content="http://www.team-phase.com/Share-News-'.$news_to['id'].'"/>
+				<meta property="og:title" content="'.$news_to['title'].'"/>
+				<meta property="og:description" content="'.htmlentities($news_to['content'], ENT_QUOTES).'"/>
+				<meta property="og:image" content="http://www.team-phase.com/'.srcImg($news_to['image_id']).'"/>
+				';
+			}
+		}
+	}
+
 	include($url."header.php");
 ?>
 <div id="list_news" >
@@ -66,11 +89,23 @@
 		$id_comments = 'comments_'.id(6);
 		$i++;
 		$align = ($i%2) ? 'left' : 'right';
+
 		echo '
-		<div class="news bg4" id="'.$title_canonical.'" >
+			<div class="news bg4" id="'.$title_canonical.'" >
 			<h2><a href="'.$url_news.'" >' . $news['title'] . '</a></h2>
 			<img class="img_news img_news_' . $align . '" src="'.srcImg($news['image_id']).'" />
 			<p>' . parse($news['content']) . '</p>
+
+			<div class="share_buttons" >
+				<div class="fb-share-button"
+					data-href="http://www.team-phase.com/Share-News-'.$news['id'].'"
+					data-type="button"
+				></div>';
+		?>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http://www.team-phase.com/Share-News-<?= $news['id'] ?>" data-text="<?= $news['title'] ?>" data-hashtags="teamphase" data-dnt="true">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<?php echo '	
+			</div>
 			<div class="news_red_bar" onclick="$(\'#'.$id_comments.'\').toggle();" >
 				<p class="right" ><img src="include/img/icon/com.png" /><strong>'.count($comments).'</strong> comment(s)</p>
 				<p class="left" ><img src="include/img/icon/write.png" />by <strong>' . $news['author'] . '</strong>
