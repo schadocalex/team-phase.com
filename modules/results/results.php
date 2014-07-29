@@ -63,7 +63,7 @@
 		<div id="matches" class="bg4" >
 			<h2>MATCHES<br/>
 				<span style="font-size:10px;font-weight:normal;" >
-					
+					(We don't add ODC results)
 				</span>
 			</h2>
 			<table>

@@ -403,7 +403,7 @@ form  {
 		position : relative;
 	}
 	#menu .lien_reseau_social:hover {
-		background: rgba(16,16,16,0.9);
+		background: none;
 	}
 	#menu a:hover {
 		background-color: #800;
