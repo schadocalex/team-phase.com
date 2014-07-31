@@ -78,7 +78,7 @@ hr {  margin: 6px 0 6px 0; }
 }
 
 .bg4 {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.6);
 	border-radius: 5px;
 	width: 858px;
 	margin: 0 0 3px 1px;
@@ -87,7 +87,7 @@ hr {  margin: 6px 0 6px 0; }
 	border-bottom: 5px solid #800;
 }
 .bg5 {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.6);
 	border-radius: 5px;
 	width: 608px;
 	margin: 0 0 3px 1px;
@@ -97,7 +97,7 @@ hr {  margin: 6px 0 6px 0; }
 	margin-right: 2px;
 }
 .bg6 {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.6);
 	border-radius: 5px;
 	width: 200px;
 	margin: 0 0 3px 1px;
@@ -106,7 +106,7 @@ hr {  margin: 6px 0 6px 0; }
 	border-bottom: 5px solid #800;
 }
 .bg7 {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.6);
 	border-radius: 5px;
 	width: 359px;
 	margin: 0 0 3px 1px;
@@ -115,7 +115,7 @@ hr {  margin: 6px 0 6px 0; }
 	border-bottom: 5px solid #800;
 }
 .bg8 {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.6);
 	border-radius: 5px;
 	width: 456px;
 	margin: 0 0 3px 1px;
@@ -1012,7 +1012,7 @@ form  {
 			background-color: #000;
 		}
 		#results tr:hover {
-			background-color: rgba(16,16,16,0.5);
+			background-color: rgba(16,16,16,0.6);
 		}
 		#results .no_match_link:hover {
 			background-color: inherit;
@@ -1057,13 +1057,13 @@ form  {
 				width: 100px;
 			}
 				#results #matches .score_win {
-					background-color: rgba(0,200,0,0.5);
+					background-color: rgba(0,200,0,0.8);
 				}
 				#results #matches .score_defeat {
-					background-color: rgba(200,0,0,0.5);
+					background-color: rgba(255,0,0,0.8);
 				}
 				#results #matches .score_draw{
-					background-color: rgba(0,0,200,0.5);;
+					background-color: rgba(0,0,255,0.8);;
 				}
 			
 /** ADMIN **/
