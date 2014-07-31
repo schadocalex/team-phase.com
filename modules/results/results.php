@@ -20,43 +20,43 @@
 				<tr onclick="window.open('http://eu.cybergamer.com/bracket/38/CG-EU-ET-Season-1-6on6-Div-1/')">
 					<td class="game" ><img src="include/img/games/et.gif"></td>
 					<td class="date" >15/06/2014</td>
-					<td class="award" ><img src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 6on6 Division 1</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 6on6 Division 1</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://eu.cybergamer.com/bracket/43/CG-EU-ET-Season-1-3on3-Div-1/')">
 					<td class="game" ><img src="include/img/games/et.gif"></td>
 					<td class="date" >15/06/2014</td>
-					<td class="award" ><img src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 3on3 Division 1</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/silver.png" /> CyberGamer EU ET Season 1 3on3 Division 1</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://eu.cybergamer.com/forums/thread/542557/Granted-come-out-victorious-and-take-the-100-prize/')">
 					<td class="game" ><img src="include/img/games/cod4.gif"></td>
 					<td class="date" >27/04/2014</td>
-					<td class="award" ><img src="include/img/awards/silver.png" /> CyberGamer CoD4 Tournament #1</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/silver.png" /> CyberGamer CoD4 Tournament #1</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://www.crossfire.nu/news/8425/alliance-cup-grand-final')">
 					<td class="game" ><img src="include/img/games/rtcw.gif"></td>
 					<td class="date" >31/03/2014</td>
-					<td class="award" ><img src="include/img/awards/gold.png" /> RtCW ASUS Alliance 6on6 Cup</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/gold.png" /> RtCW ASUS Alliance 6on6 Cup</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://www.crossfire.nu/news/8356/cf-winter-grand-final')">
 					<td class="game" ><img src="include/img/games/et.gif"></td>
 					<td class="date" >15/12/2013</td>
-					<td class="award" ><img src="include/img/awards/gold.png" /> CROSSFIRE ET WinterCup 6on6 2013</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/gold.png" /> CROSSFIRE ET WinterCup 6on6 2013</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://www.crossfire.nu/news/8325/rtcw-legacy-cup-grand-finale')" >
 					<td class="game" ><img src="include/img/games/rtcw.gif"></td>
 					<td class="date" >11/11/2013</td>
-					<td class="award" ><img src="include/img/awards/bronze.png" /> Return to Castle Wolfenstein 6on6 Legacy Cup 2013</td>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/bronze.png" /> Return to Castle Wolfenstein 6on6 Legacy Cup 2013</td>
 				</tr>
 				<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>
 				<tr onclick="window.open('http://www.crossfire.nu/news/8300/cb-et-summer-2013-winners')" >
 					<td class="game" ><img src="include/img/games/et.gif"></td>
 					<td class="date" >22/09/2013</td>
-					<td class="award" ><img src="include/img/awards/gold.png" /> Enemy Territory Clanbase 3on3 Summer Cup Premier league 2013</td></tr>
+					<td class="award" ><img class="awards_icon" src="include/img/awards/gold.png" /> Enemy Territory Clanbase 3on3 Summer Cup Premier league 2013</td></tr>
 			</table>
 			<br />
 		</div>

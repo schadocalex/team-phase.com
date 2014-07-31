@@ -981,11 +981,12 @@ form  {
 		width: 870px;
 	}
 		#results  #awards {
-
+			text-align: center;
 		}
 			#results #awards .game {
 				width: 15px;
-
+				position: relative;
+				top: 1px;
 			}
 			#results #awards .date {
 				width: 100px;
@@ -994,6 +995,12 @@ form  {
 			#results #awards .award {
 				width: 744px;
 				text-align: left;
+				position: relative;
+				top: -2px;
+			}
+			#results #awards .awards_icon {
+				position: relative;
+				top: 3px;
 			}
 		#results tr {
 			cursor: pointer;
@@ -1005,7 +1012,7 @@ form  {
 			background-color: #000;
 		}
 		#results tr:hover {
-			background-color: #222;
+			background-color: rgba(16,16,16,0.5);
 		}
 		#results .no_match_link:hover {
 			background-color: inherit;
@@ -1050,13 +1057,13 @@ form  {
 				width: 100px;
 			}
 				#results #matches .score_win {
-					background-color: green;
+					background-color: rgba(0,200,0,0.5);
 				}
 				#results #matches .score_defeat {
-					background-color: #c00;
+					background-color: rgba(200,0,0,0.5);
 				}
 				#results #matches .score_draw{
-					background-color: blue;
+					background-color: rgba(0,0,200,0.5);;
 				}
 			
 /** ADMIN **/
