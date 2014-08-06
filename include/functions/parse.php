@@ -1,7 +1,7 @@
 <?php
 	function parse($content)
 	{
-		$content = nl2br($content);
+		$content = stripslashes(nl2br($content));
 
 		$flags = Select::all('flag');
 		$search  = array(); 
