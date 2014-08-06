@@ -42,6 +42,7 @@
 		<script type="text/javascript" src="include/js/functions.js" ></script>
 		<script type="text/javascript" src="include/js/slider.js" ></script>
 		<script type="text/javascript" src="include/js/jquery.fancybox.js" ></script>
+		<script type="text/javascript" src="include/js/ckeditor/ckeditor.js" ></script>
 
 		<?= @$fb_share_meta_tags ?>
 	</head>

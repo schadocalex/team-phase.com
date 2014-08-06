@@ -175,8 +175,8 @@
 				<h2>ABOUT US</h2>
 				<p style="text-align: center;" >
 					TEAM-PHASE was founded in May 2013 by Côme "aacid" M & Pierre-Antoine "drkje" Dubard.
-					The organisation is primarily focussed on supporting top FPS teams competiting both online and offline at LAN events across Europe.
-					Our goal is to turn TEAM-PHASE into a household gaming brand that is recognised throughout the world.
+					The organisation is primarily focused on supporting top FPS teams competing both online and offline at LAN events across Europe.
+					Our goal is to turn TEAM-PHASE into a household gaming brand that is recognized throughout the world.
 					If you are interested in joining TEAM-PHASE:<br>
 					<a href="mailto:contact@team-phase.com" >contact@team-phase.com</a>
 				</p>
@@ -191,7 +191,7 @@
 						$title_canonical = getCanonical($newses[$comment['news_id']]['title']);
 						$url_news = 'News-'.$comment['news_id'].'#'.$title_canonical;
 
-						$content = $comment['content'];
+						$content = strip_tags($comment['content']);
 						$lim_char = 35;
 						if(strlen($content) > $lim_char)
 							$content = substr($content, 0, $lim_char).'...';

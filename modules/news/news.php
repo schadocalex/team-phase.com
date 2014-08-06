@@ -21,7 +21,7 @@
 		else
 		{
 			$form->verify_jeton($_POST['jeton']);
-			$content = htmlentities(@$_POST['comment']);
+			$content = @$_POST['comment_'.$news_id];
 
 			if(empty($content))
 				$form->error('You must add some text to the comment.');
@@ -38,6 +38,7 @@
 				$insert->execute();
 				$_SESSION['success'] = 'Your comment has been sent.';
 				$_POST['comment'] = '';
+				$just_commented = true;
 			}
 		}
 	}
@@ -106,7 +107,7 @@
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		<?php echo '	
 			</div>
-			<div class="news_red_bar" onclick="$(\'#'.$id_comments.'\').toggle();" >
+			<div class="news_red_bar" onclick="openCKEditor(\'comment_'.$news['id'].'\'); $(\'#'.$id_comments.'\').toggle();" >
 				<p class="right" ><img src="include/img/icon/com.png" /><strong>'.count($comments).'</strong> comment(s)</p>
 				<p class="left" ><img src="include/img/icon/write.png" />by <strong>' . $news['author'] . '</strong>
 				- ' . DateTime::createFromFormat('Y-m-d H:i:s', $news['date'])->format('D\, j M Y') . '</p>
@@ -114,12 +115,21 @@
 			<div id="'.$id_comments.'" class="news_comments'.($news_commented?'':' hidden').'" >';
 			if($news_commented)
 				showMessages();
-			if($user->is('MEMBER'))
+			if($user->is('MEMBER') AND (empty($just_commented) OR !$news_commented))
 			{
-				$form->initialize('comment', 'width:520px;margin:auto;', $url_news);
-				$form->textarea('comment', 'Add a comment:', '', 60, 5);
+				$form->initialize('comment', '', $url_news);
 				$form->hidden('id', $news['id']);
-				$form->end('Send');
+
+				echo '
+					<p class="comment_author" >
+						' . $user->username() . ' - 
+					' . date('d/m/Y \a\t H:i', time()) . '
+					</p>
+					<hr class="comment_hr" style="margin-bottom:-20px;" />';
+					$form->textarea('comment_'.$news['id'], '', 'Click here to add a comment', 50, 3, 'class="ckedito"');
+					if($news_commented) echo '<script>CKEDITOR.inline("comment_'.$news['id'].'");</script>';
+					$form->end('Send', 'submit', '', 'position:relative;top:-35px;');
+				echo '<br /><br />';
 			}
 			else
 			{
@@ -139,8 +149,8 @@
 					' . $date_comment->format('d/m/Y \a\t H:i') . '
 					</p>
 					<hr class="comment_hr" />
-					' . parse($comment['content']) .'
-					<br /><br />';
+					<div class="content_comments" >' . parse($comment['content']) .'</div>
+					<br />';
 			}
 			echo'</div>
 		</div>';

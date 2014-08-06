@@ -7,6 +7,14 @@ function page_to_content() {
 	$('html,body').animate({scrollTop: 295}, 'slow');
 }
 
+function openCKEditor(name) {
+	if(window['CKE_'+name] == undefined)
+	{
+		window['CKE_'+name] = 1;
+		CKEDITOR.inline(name);
+	}
+}
+
 $(document).ready(function() {
 	$('.fancybox').fancybox();
 });
