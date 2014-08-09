@@ -937,6 +937,9 @@ form  {
 			margin: 0;
 			padding: 0;
 		}
+		.content_comments a, .news_content a {
+			text-decoration: underline;
+		}
 
 	.share_buttons {
 		clear: both;

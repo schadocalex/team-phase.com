@@ -69,6 +69,7 @@
 
 	include($url."header.php");
 ?>
+<script>var dump_file="yourfile.php";</script>
 <div id="list_news" >
 	<?php
 	
@@ -95,7 +96,7 @@
 			<div class="news bg4" id="'.$title_canonical.'" >
 			<h2><a href="'.$url_news.'" >' . $news['title'] . '</a></h2>
 			<img class="img_news img_news_' . $align . '" src="'.srcImg($news['image_id']).'" />
-			<p>' . parse($news['content']) . '</p>
+			<p class="news_content" >' . parse($news['content']) . '</p>
 
 			<div class="share_buttons" >
 				<div class="fb-share-button"
@@ -126,7 +127,7 @@
 					' . date('d/m/Y \a\t H:i', time()) . '
 					</p>
 					<hr class="comment_hr" style="margin-bottom:-20px;" />';
-					$form->textarea('comment_'.$news['id'], '', 'Click here to add a comment', 50, 3, 'class="ckedito"');
+					$form->textarea('comment_'.$news['id'], '', 'Click here to add a comment', 50, 3);
 					if($news_commented) echo '<script>CKEDITOR.inline("comment_'.$news['id'].'");</script>';
 					$form->end('Send', 'submit', '', 'position:relative;top:-35px;');
 				echo '<br /><br />';
@@ -143,13 +144,30 @@
 			{
 				$user_comment = new User($comment['author_id']);
 				$date_comment = DateTime::createFromFormat('Y-m-d H:i:s', $comment['date']);
+				$edit = '';
+				if($comment['author_id'] == $user->id OR $user->is('ADMIN_MEMBERS'))
+				{
+					$edit = ' - <a>Edit</a> - <a>Delete</a>';
+					/*$form_edit = '<form name="edit_comment_'.$comment['id'].'" method="POST"
+					action="Edit-Comment-'.$comment['id'].'" >
+						<textarea name="comment_'.$comment['id'].'_'.$news['id'].'" class="comment_'.$news['id'].'" cols="70" rows="6">
+							' . parse($comment['content']) .'
+						</textarea>
+					</form>
+					';
+					echo '<script>CKEDITOR.inline("comment_'.$news['id'].'");</script>';
+					*/
+				}
+
 				echo '
 					<p class="comment_author" >
 						' . $user_comment->username() . ' - 
 					' . $date_comment->format('d/m/Y \a\t H:i') . '
+					' . $edit . '
 					</p>
 					<hr class="comment_hr" />
-					<div class="content_comments" >' . parse($comment['content']) .'</div>
+					<div class="content_comments" contenteditable="true" >' . parse($comment['content']) .'
+					</div>
 					<br />';
 			}
 			echo'</div>
