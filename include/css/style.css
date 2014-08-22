@@ -123,6 +123,14 @@ hr {  margin: 6px 0 6px 0; }
 	padding: 10px 20px 10px 20px;
 	border-bottom: 5px solid #800;
 }
+.popup {
+	background: rgba(8,8,8,0.6);
+	border-radius: 5px;
+	max-width: 700px;
+	margin: 0 0 3px 1px;
+	float: left;
+	padding: 10px 20px 10px 20px;
+}
 .bg4:hover, .bg5:hover, .bg6:hover, .bg7:hover, .bg8:hover {
 	border-bottom: 5px solid #a00;
 	/*background: rgba(16,16,16,10);*/
