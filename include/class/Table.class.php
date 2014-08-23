@@ -144,6 +144,8 @@
 		private static $comment;
 		private static $picture;
 		private static $video;
+		private static $user_team;
+		private static $team;
 
 		public function __construct() {}
 

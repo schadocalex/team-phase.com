@@ -4,17 +4,71 @@
 
 	$user->accessRight('SUPER_ADMIN');
 
-	//$teams = Select::all('teams');
-	
+	define('TEAM_STATUS__MEMBER', 1);
+	define('TEAM_STATUS__ASKING', 5);
+
+	if(isset($_POST['create_team']))
+	{
+		$form->verify_jeton($_POST['jeton']);
+		$name = @$_POST['name'];
+		$flag = @$_POST['flag'];
+		$irc = @$_POST['irc'];
+		$website = @$_POST['website'];
+
+		if(empty($name))
+			$form->error('You must enter a team name.');
+
+		if($form->error == '')
+		{
+			$insert_team = new Insert('team');
+			$insert_team->name = $name;
+			$insert_team->flag_id = $flag;
+			$insert_team->irc = $irc;
+			$insert_team->website = $website;
+			$insert_team->execute();
+
+			$insert_user_team = new Insert('user_team');
+			$insert_user_team->user_id = $user->id;
+			$insert_user_team->team_id = $bdd->lastInsertId();
+			$insert_user_team->status = TEAM_STATUS__MEMBER;
+			$insert_user_team->execute();
+
+			$_SESSION['success'] = 'Team <em>'.$name.'</em> has been created.';
+			$user->redirect('Tournament');
+		}
+	}
+
 	include($url."header.php");
+
+	$users = Select::all('user');
+	$teams = Select::all('team');
+	$users_teams = Select::all('user_team');
+	$user_teams = array();
+	$team_users = array();
+
+	foreach($users_teams as $ut)
+	{
+		if($ut['user_id'] == $user->id)
+		{
+			array_push($user_teams, $ut['team_id']);
+		}
+		if(!isset($team_users[$ut['team_id']]))
+			$team_users[$ut['team_id']] = array();
+		array_push($team_users[$ut['team_id']], $ut['user_id']);
+	}
+	/*
+	echo '<pre>';
+	var_dump($team_users);
+	echo '</pre>';
+	*/
+
 ?>
 <div id="tournament" >
-	
 	<div class="bg4" >
 		<img src="include/img/tournament/phasethetournament.png" style="border-radius:5px;position:relative;left:-20px;top:-10px;" width="898" />
 		<p style="text-align:center;" ><a href="#popup_rules" class="fancybox" >Click here to view rules</a></p>
 	</div>
-	<div id="popup_rules" class="popup bg9" >
+	<div id="popup_rules" class="popup" >
 		<h2>RULES!</h2>
 		<p><center>
 			1) All participants are required to register at www.team-phase.com. A player's nickname on the website needs to match a player's in-game nickname.
@@ -46,6 +100,23 @@
 	</div>
 	<div class="bg4" >
 		<h2>YOUR TEAM</h2>
+		<?php
+			showMessages();
+			$form->initialize('accept_team', '', 'Team-Accept-1');
+			echo 'Team <em>phase</em> invited you to join it.';
+			$form->end('Accept');
+		?>
+		You can also create your own team:<br />
+		<?php
+			$form->initializeImg('create_team', '', 'Tournament');
+			$form->hidden('create_team');
+			$form->input('text', 'Name:', 'name');
+			$form->input('flag', 'Flag:', 'flag');
+			$form->input('text', 'Channel IRC:', 'irc');
+			$form->input('text', 'Website:', 'website');
+			$form->end('Create team');
+		?>
+		If you want to join an existing team, ask a member from it to invite you.
 	</div>
 </div>
 
