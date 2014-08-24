@@ -8,6 +8,32 @@
 	define('TEAM_STATUS__LEADER', 2);
 	define('TEAM_STATUS__ASKING', 5);
 
+	$teams = Select::all('team');
+	$users_teams = Select::all('user_team');
+	$user_teams = array();
+	$team_users = array();
+	$user_has_team = false;
+	$leader = false;
+	foreach($users_teams as $ut)
+	{
+		if($ut['user_id'] == $user->id)
+		{
+			array_push($user_teams, $ut['team_id']);
+			if($ut['status'] == TEAM_STATUS__MEMBER OR $ut['status'] == TEAM_STATUS__LEADER)
+			{
+				$user_has_team = true;
+				$user_team = $teams[$ut['team_id']];
+				if($ut['status'] == TEAM_STATUS__LEADER)
+				{
+					$leader = true;
+				}
+			}
+		}
+		if(!isset($team_users[$ut['team_id']]))
+			$team_users[$ut['team_id']] = array();
+		array_push($team_users[$ut['team_id']], array($ut['user_id'], $ut['status']));
+	}
+
 	if(isset($_POST['create_team']))
 	{
 		$form->verify_jeton($_POST['jeton']);
@@ -31,43 +57,67 @@
 			$insert_user_team = new Insert('user_team');
 			$insert_user_team->user_id = $user->id;
 			$insert_user_team->team_id = $bdd->lastInsertId();
-			$insert_user_team->status = TEAM_STATUS__MEMBER;
+			$insert_user_team->status = TEAM_STATUS__LEADER;
 			$insert_user_team->execute();
 
 			$_SESSION['success'] = 'Team <em>'.$name.'</em> has been created.';
 			$user->redirect('Tournament');
 		}
 	}
+	if(isset($_POST['invite_member']))
+	{
+		$form->verify_jeton($_POST['jeton']);
+		$pseudo = @$_POST['pseudo'];
+
+		if(empty($pseudo))
+			$form->error('You must enter a pseudo to invite a member.');
+
+		if($form->error == '')
+		{
+			$user_id = $bdd->prepare('SELECT id FROM user WHERE username = ?');
+			$user_id->bindValue(1, $pseudo);
+			$user_id->execute();
+			if($user_id->rowCount() > 0)
+			{
+				$user_invited_id = $user_id->fetchAll()[0]['id'];
+
+				$already_in_team = false;
+				foreach($users_teams as $u)
+				{
+					if($u['user_id'] == $already_in_team AND
+						($u['status'] == TEAM_STATUS__MEMBER OR $u['status'] == TEAM_STATUS__LEADER))
+					{
+						$already_in_team = true;
+						break;
+					}
+				}
+
+				if($already_in_team)
+				{
+					$_SESSION['error'] = "Member <em>".$pseudo."</em> is already in an other team.";
+				}
+				else
+				{
+					$insert_user_team = new Insert('user_team');
+					$insert_user_team->user_id = $user_invited_id;
+					$insert_user_team->team_id = $user_team['id'];
+					$insert_user_team->status = TEAM_STATUS__ASKING;
+					$insert_user_team->execute();
+
+					$_SESSION['success'] = 'Member <em>'.$pseudo.'</em> has been asked to join the team.';
+					$user->redirect('Tournament');
+				}
+			}
+			else
+			{
+				$_SESSION['error'] = "Pseudo <em>".$pseudo."</em> doesn't exist. Ask him to register in team-phase.com.";
+			}
+		}
+	}
 
 	include($url."header.php");
 
 	$users = Select::all('user');
-	$teams = Select::all('team');
-	$users_teams = Select::all('user_team');
-	$user_teams = array();
-	$team_users = array();
-	$user_has_team = false;
-
-	foreach($users_teams as $ut)
-	{
-		if($ut['user_id'] == $user->id)
-		{
-			array_push($user_teams, $ut['team_id']);
-			if($ut['status'] == TEAM_STATUS__MEMBER OR $ut['status'] == TEAM_STATUS__LEADER)
-			{
-				$user_has_team = true;
-				$user_team = $teams[$ut['team_id']];
-			}	
-		}
-		if(!isset($team_users[$ut['team_id']]))
-			$team_users[$ut['team_id']] = array();
-		array_push($team_users[$ut['team_id']], array($ut['user_id'], $ut['status']));
-	}
-	/*
-	echo '<pre>';
-	var_dump($team_users);
-	echo '</pre>';
-	*/
 
 ?>
 <div id="tournament" >
@@ -107,10 +157,9 @@
 	</div>
 	<div class="bg4" >
 		<h2>YOUR TEAM</h2>
+	<?php showMessages(); ?>
 	<?php if(!$user_has_team) { ?>
 		<?php
-			showMessages();
-
 			echo "You don't havea team yet.<br/>";
 
 			$form->initialize('accept_team', '', 'Team-Accept-1');
@@ -144,10 +193,22 @@
 						echo '<li>'.getUsername($u);
 							if($u_status == TEAM_STATUS__MEMBER)
 								echo ' (member)';
+							if($u_status == TEAM_STATUS__LEADER)
+								echo ' (leader)';
+							if($u_status == TEAM_STATUS__ASKING)
+								echo ' (invited, waiting for answer)';
 						echo '</li>';
 					}
 			echo '
 				</ul>';
+
+			if($leader)
+			{
+				$form->initializeImg('invite_member', '', 'Tournament');
+				$form->hidden('invite_member');
+				$form->input('text', 'Pseudo on team-phase.com:', 'pseudo');
+				$form->end('Invite member');
+			}
 		?>
 		<!-- <ul>
 			<li><strong>Name</strong>: <?= $user_team['name'] ?></li>
