@@ -157,7 +157,7 @@
 				-->
 					<a href="#video<?= $video['id'] ?>" class="fancybox link_miniature" title="<?= @$video['title'] ?>" ><img class="miniature"
 					src="<?= srcImgYoutube($video['id_youtube']) ?>" /></a>
-					<div id="video<?= $video['id'] ?>" class="popup" >
+					<div id="video<?= $video['id'] ?>" class="popup popup_gallery" >
 						<iframe width="853" height="480" src="//www.youtube.com/embed/<?= $video['id_youtube'] ?>" frameborder="0" allowfullscreen></iframe>
 					</div>
 				<?php } ?>
@@ -167,7 +167,7 @@
 				<?php foreach($pictures as $picture) { ?>
 				<a href="#picture_<?= $picture['id'] ?>" class="fancybox link_miniature" rel="pictures_home" title="<?= @$picture['title'] ?>" ><img class="miniature"
 					src="<?= srcImgMin($picture['image_id']) ?>" /></a>
-				<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
+				<div id="picture_<?= $picture['id'] ?>" class="popup popup_gallery" ><img class="img_popup"
 					src="<?= srcImg($picture['image_id']) ?>" /></div>
 				<?php } ?>
 			</div>

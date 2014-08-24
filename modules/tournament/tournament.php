@@ -131,7 +131,7 @@
 
 				if($already_in_team)
 				{
-					$_SESSION['error'] = "Member <em>".$pseudo."</em> is already in an other team.";
+					$_SESSION['error'] = "Member <em>".$pseudo."</em> is already in a team.";
 				}
 				else
 				{
@@ -269,8 +269,7 @@
 		<?php
 			foreach($teams as $t)
 			{
-				echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'].'</h3>
-					<ul>';
+				echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'].'</h3>';
 
 				if(!empty($t['irc']))
 					echo 'IRC: ' . $t['irc'] . '<br />';

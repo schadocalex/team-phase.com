@@ -19,7 +19,7 @@
 				<img style="background:url('<?= srcImgMin($picture['image_id']) ?>') center center;" 
 				class="miniature" src="include/img/medias/picture_w.png"/>
 			</a>
-			<div id="picture_<?= $picture['id'] ?>" class="popup" ><img class="img_popup"
+			<div id="picture_<?= $picture['id'] ?>" class="popup popup_gallery" ><img class="img_popup"
 				src="<?= srcImg($picture['image_id']) ?>" /></div>
 		<?php } ?>
 	</div>
@@ -34,7 +34,7 @@
 				<img style="background:url('<?= srcImgYoutube($video['id_youtube']) ?>') center center;" 
 				class="miniature" src="include/img/medias/video_w.png"/>
 			</a>
-			<div id="video<?= $video['id'] ?>" class="popup" >
+			<div id="video<?= $video['id'] ?>" class="popup popup_gallery" >
 				<iframe width="853" height="480" src="//www.youtube.com/embed/<?= $video['id_youtube'] ?>" frameborder="0" allowfullscreen></iframe>
 			</div>
 		<?php } ?>

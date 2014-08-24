@@ -131,6 +131,11 @@ hr {  margin: 6px 0 6px 0; }
 	float: left;
 	padding: 10px 20px 10px 20px;
 }
+.popup_gallery {
+	background: inherit;
+	max-width: inherit;
+	padding: 0px;
+}
 .bg4:hover, .bg5:hover, .bg6:hover, .bg7:hover, .bg8:hover {
 	border-bottom: 5px solid #a00;
 	/*background: rgba(16,16,16,10);*/
