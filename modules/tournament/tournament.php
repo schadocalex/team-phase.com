@@ -18,7 +18,7 @@
 	{
 		if($ut['user_id'] == $user->id)
 		{
-			array_push($user_teams, $ut['team_id']);
+			array_push($user_teams, array($ut['team_id'], $ut['status']));
 			if($ut['status'] == TEAM_STATUS__MEMBER OR $ut['status'] == TEAM_STATUS__LEADER)
 			{
 				$user_has_team = true;
@@ -64,6 +64,38 @@
 			$user->redirect('Tournament');
 		}
 	}
+	if(isset($_POST['accept_team']))
+	{
+		$form->verify_jeton($_POST['jeton']);
+		$team_id = @$_POST['accept_team'];
+
+		if(!isset($teams[$team_id]))
+			$form->error("The team doesn't exist.");
+
+		$user_in_team = false;
+		foreach($users_teams as $u)
+		{
+			if($u['user_id'] == $user->id AND $u['team_id'] == $team_id AND $u['status'] == TEAM_STATUS__ASKING)
+			{
+				$user_in_team = true;
+				$id_of_table_user_team = $u['id'];
+				break;
+			}
+		}
+		if(!$user_in_team)
+			$form->error("The team didn't invite you.");
+
+		if($form->error == '')
+		{
+			$user_accept = $bdd->prepare('UPDATE user_team SET status = ? WHERE id = ?');
+			$user_accept->bindValue(1, TEAM_STATUS__MEMBER);
+			$user_accept->bindValue(2, $id_of_table_user_team);
+			$user_accept->execute();
+
+			$_SESSION['success'] = "You're now a member of team <em>{$teams[$team_id]['name']}</em>.";
+			$user->redirect('Tournament');
+		}
+	}
 	if(isset($_POST['invite_member']))
 	{
 		$form->verify_jeton($_POST['jeton']);
@@ -84,7 +116,7 @@
 				$already_in_team = false;
 				foreach($users_teams as $u)
 				{
-					if($u['user_id'] == $already_in_team AND
+					if($u['user_id'] == $user_invited_id AND
 						($u['status'] == TEAM_STATUS__MEMBER OR $u['status'] == TEAM_STATUS__LEADER))
 					{
 						$already_in_team = true;
@@ -160,13 +192,22 @@
 	<?php showMessages(); ?>
 	<?php if(!$user_has_team) { ?>
 		<?php
-			echo "You don't havea team yet.<br/>";
-
-			$form->initialize('accept_team', '', 'Team-Accept-1');
-			echo 'Team <em>phase</em> invited you to join it.';
-			$form->end('Accept');
+			echo "You don't have any team yet.<br/>";
+			foreach ($user_teams as $t_array) {
+				$t_id = $t_array[0];
+				$t_status = $t_array[1];
+				if($t_status == TEAM_STATUS__ASKING)
+				{
+					echo '<div>';
+					$form->initialize('accept_team', '', 'Tournament');
+					$form->hidden('accept_team', $t_id);
+					echo '<span style="display:inline-block;width:250px;margin-right:-150px;" >Team <em>'.$teams[$t_id]['name'].'</em> invited you to join it.</span>';
+					$form->end('Accept');
+					echo '</div>';
+				}
+			}
 		?>
-		You can also create your own team:<br />
+		<br />Create your own team:<br />
 		<?php
 			$form->initializeImg('create_team', '', 'Tournament');
 			$form->hidden('create_team');
