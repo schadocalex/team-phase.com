@@ -111,7 +111,8 @@
 			$user_id->execute();
 			if($user_id->rowCount() > 0)
 			{
-				$user_invited_id = $user_id->fetchAll()[0]['id'];
+				$user_invited_id = $user_id->fetchAll();
+				$user_invited_id = $user_invited_id[0]['id'];
 
 				$already_in_team = false;
 				foreach($users_teams as $u)
@@ -192,7 +193,7 @@
 	<?php showMessages(); ?>
 	<?php if(!$user_has_team) { ?>
 		<?php
-			echo "You don't have any team yet.<br/>";
+			echo "You don't have team yet.<br/>";
 			foreach ($user_teams as $t_array) {
 				$t_id = $t_array[0];
 				$t_status = $t_array[1];
@@ -247,7 +248,7 @@
 			{
 				$form->initializeImg('invite_member', '', 'Tournament');
 				$form->hidden('invite_member');
-				$form->input('text', 'Pseudo on team-phase.com:', 'pseudo');
+				$form->input('text', 'Invite member (pseudo):', 'pseudo');
 				$form->end('Invite member');
 			}
 		?>
