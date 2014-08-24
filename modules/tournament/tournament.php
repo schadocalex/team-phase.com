@@ -14,6 +14,11 @@
 	$team_users = array();
 	$user_has_team = false;
 	$leader = false;
+
+	foreach($teams as $t)
+	{
+		$team_users[$t['id']] = array();
+	}
 	foreach($users_teams as $ut)
 	{
 		if($ut['user_id'] == $user->id)
@@ -29,8 +34,7 @@
 				}
 			}
 		}
-		if(!isset($team_users[$ut['team_id']]))
-			$team_users[$ut['team_id']] = array();
+
 		array_push($team_users[$ut['team_id']], array($ut['user_id'], $ut['status']));
 	}
 
@@ -259,6 +263,38 @@
 			<li><strong>Website</strong>: <?= $user_team['website'] ?></li>
 		</ul> -->
 	<?php } ?>
+	</div>
+	<div class="bg4" >
+		<h2>TEAMS</h2>
+		<?php
+			foreach($teams as $t)
+			{
+				echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'].'</h3>
+					<ul>';
+
+				if(!empty($t['irc']))
+					echo 'IRC: ' . $t['irc'] . '<br />';
+				if(!empty($t['website']))
+					echo 'Website: ' . $t['website'] . '<br />';
+				echo 'Members:<br/>
+					<ul>';
+				foreach ($team_users[$t['id']] as $u_array) {
+					$u_id = $u_array[0];
+					$u_status = $u_array[1];
+					$u = $users[$u_id];
+					echo '<li>'.getUsername($u);
+						if($u_status == TEAM_STATUS__MEMBER)
+							echo ' (member)';
+						if($u_status == TEAM_STATUS__LEADER)
+							echo ' (leader)';
+						if($u_status == TEAM_STATUS__ASKING)
+							echo ' (invited, waiting for answer)';
+					echo '</li>';
+				}
+				echo '
+					</ul><br /><br />';
+			}
+		?>
 	</div>
 </div>
 
