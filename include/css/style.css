@@ -1170,3 +1170,7 @@ form  {
 #tournament li {
 	margin-left: 20px;
 }
+#tournament h2:hover {
+	color: #c00;
+	cursor:pointer;
+}
