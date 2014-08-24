@@ -5,6 +5,7 @@
 	$user->accessRight('SUPER_ADMIN');
 
 	define('TEAM_STATUS__MEMBER', 1);
+	define('TEAM_STATUS__LEADER', 2);
 	define('TEAM_STATUS__ASKING', 5);
 
 	if(isset($_POST['create_team']))
@@ -45,16 +46,22 @@
 	$users_teams = Select::all('user_team');
 	$user_teams = array();
 	$team_users = array();
+	$user_has_team = false;
 
 	foreach($users_teams as $ut)
 	{
 		if($ut['user_id'] == $user->id)
 		{
 			array_push($user_teams, $ut['team_id']);
+			if($ut['status'] == TEAM_STATUS__MEMBER OR $ut['status'] == TEAM_STATUS__LEADER)
+			{
+				$user_has_team = true;
+				$user_team = $teams[$ut['team_id']];
+			}	
 		}
 		if(!isset($team_users[$ut['team_id']]))
 			$team_users[$ut['team_id']] = array();
-		array_push($team_users[$ut['team_id']], $ut['user_id']);
+		array_push($team_users[$ut['team_id']], array($ut['user_id'], $ut['status']));
 	}
 	/*
 	echo '<pre>';
@@ -100,8 +107,12 @@
 	</div>
 	<div class="bg4" >
 		<h2>YOUR TEAM</h2>
+	<?php if(!$user_has_team) { ?>
 		<?php
 			showMessages();
+
+			echo "You don't havea team yet.<br/>";
+
 			$form->initialize('accept_team', '', 'Team-Accept-1');
 			echo 'Team <em>phase</em> invited you to join it.';
 			$form->end('Accept');
@@ -117,6 +128,34 @@
 			$form->end('Create team');
 		?>
 		If you want to join an existing team, ask a member from it to invite you.
+	<?php } else { ?>
+		<h2><?=dispFlag($user_team['flag_id']) ?> <?= $user_team['name'] ?></h2>
+		<?php
+			if(!empty($user_team['irc']))
+				echo 'IRC: ' . $user_team['irc'] . '<br />';
+			if(!empty($user_team['website']))
+				echo 'Website: ' . $user_team['website'] . '<br />';
+			echo 'Members:<br/>
+				<ul>';
+					foreach ($team_users[$user_team['id']] as $u_array) {
+						$u_id = $u_array[0];
+						$u_status = $u_array[1];
+						$u = $users[$u_id];
+						echo '<li>'.getUsername($u);
+							if($u_status == TEAM_STATUS__MEMBER)
+								echo ' (member)';
+						echo '</li>';
+					}
+			echo '
+				</ul>';
+		?>
+		<!-- <ul>
+			<li><strong>Name</strong>: <?= $user_team['name'] ?></li>
+			<li><strong>Flag</strong>: <?= $user_team['flag_id'] ?></li>
+			<li><strong>Irc</strong>: <?= $user_team['irc'] ?></li>
+			<li><strong>Website</strong>: <?= $user_team['website'] ?></li>
+		</ul> -->
+	<?php } ?>
 	</div>
 </div>
 

@@ -7,9 +7,7 @@
 	{
 		$user_registered .=
 		'<li>
-			<a href="Profile-'.$u['id'].'-'.getCanonical($u['username']).'">
-				' . dispFlag($u['country_id']) . ' '. $u['username'] . '
-			</a>
+			'.getUsername($u).'
 		</li>';
 	}
 	
@@ -21,9 +19,7 @@
 	{
 		$user_online .=
 		'<li>
-			<a href="Profile-'.$u['id'].'-'.getCanonical($u['username']).'">
-				' . dispFlag($u['country_id']) . ' '. $u['username'] . '
-			</a>
+			'.getUsername($u).'
 		</li>';
 	}
 	$user_online .= '</ul>';
