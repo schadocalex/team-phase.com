@@ -145,7 +145,7 @@
 				$user_comment = new User($comment['author_id']);
 				$date_comment = DateTime::createFromFormat('Y-m-d H:i:s', $comment['date']);
 				$edit = '';
-				if($comment['author_id'] == $user->id OR $user->is('ADMIN_MEMBERS'))
+				if(0 AND ($comment['author_id'] == $user->id OR $user->is('ADMIN_MEMBERS')))
 				{
 					$edit = ' - <a>Edit</a> - <a>Delete</a>';
 					/*$form_edit = '<form name="edit_comment_'.$comment['id'].'" method="POST"
