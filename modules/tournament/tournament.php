@@ -10,8 +10,8 @@
 
 	$teams = Select::all('team');
 	$users_teams = Select::all('user_team');
-	$user_teams = array();
-	$team_users = array();
+	$user_teams = array(); // Tableau des teams relatifs à $user, array of 'key => array(team_id, status)'
+	$team_users = array(); // Tableau des users contenus dans les teams, array of 'team_id => array(user_id, status)'
 	$user_has_team = false;
 	$leader = false;
 
@@ -151,6 +151,56 @@
 			}
 		}
 	}
+	if(isset($_GET['promote']) OR isset($_GET['demote']) OR isset($_GET['exclude']))
+	{
+		$user_id = @$_GET['id_user'];
+
+		$user_in_team = false;
+		foreach($team_users[$user_team['id']] as $u_array)
+		{
+			if($user_id == $u_array[0])
+			{
+				$user_in_team = true;
+				break;
+			}
+		}
+		if(!$user_in_team)
+			$_SESSION['error'] = "An error occured. This member isn't in your team.";
+		else if(!$leader)
+			$_SESSION['error'] = "You're not a leader of your team.";
+
+		else
+		{
+			$users = Select::all('user');
+
+			if(isset($_GET['exclude']))
+			{
+				$user_exclude_request = $bdd->prepare('DELETE FROM user_team WHERE user_id = ? AND team_id = ?');
+				$user_exclude_request->bindValue(1, $user_id);
+				$user_exclude_request->bindValue(2, $user_team['id']);
+				$user_exclude_request->execute();
+				$_SESSION['success'] = "Member <em>{$users[$user_id]['username']}</em> has been excluded.";
+			}
+			else
+			{
+				$user_status_request = $bdd->prepare('UPDATE user_team SET status = ? WHERE user_id = ? AND team_id = ?');
+				if(isset($_GET['promote']))
+				{
+					$user_status_request->bindValue(1, TEAM_STATUS__LEADER);
+					$_SESSION['success'] = "Member <em>{$users[$user_id]['username']}</em> has been promoted.";
+				}
+				if(isset($_GET['demote']))
+				{
+					$user_status_request->bindValue(1, TEAM_STATUS__MEMBER);
+					$_SESSION['success'] = "Member <em>{$users[$user_id]['username']}</em> has been demoted.";
+				}
+				$user_status_request->bindValue(2, $user_id);
+				$user_status_request->bindValue(3, $user_team['id']);
+				$user_status_request->execute();
+			}
+		}
+		$user->redirect('Tournament');
+	}
 
 	include($url."header.php");
 
@@ -238,9 +288,21 @@
 						$u = $users[$u_id];
 						echo '<li>'.getUsername($u);
 							if($u_status == TEAM_STATUS__MEMBER)
+							{
 								echo ' (member)';
+								if($leader)
+								{
+									echo ' - <a href="Tournament-Exclude-'.$u['id'].'" >Exclude</a> - <a href="Tournament-Promote-'.$u['id'].'" >Promote</a>';
+								}
+							}
 							if($u_status == TEAM_STATUS__LEADER)
+							{
 								echo ' (leader)';
+								if($leader AND $u_id != $user->id)
+								{
+									echo ' - <a href="Tournament-Demote-'.$u['id'].'" >Demote</a>';
+								}
+							}
 							if($u_status == TEAM_STATUS__ASKING)
 								echo ' (invited, waiting for answer)';
 						echo '</li>';
