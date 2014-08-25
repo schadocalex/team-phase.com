@@ -212,7 +212,7 @@
 
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_rules').fadeToggle('slow');" >RULES</h2>
-		<div id="tournament_rules" style="" >
+		<div id="tournament_rules" style="display:none;" >
 			<p><center>
 				1) All participants are required to register at www.team-phase.com. A player's nickname on the website needs to match a player's in-game nickname.
 			</p>
@@ -243,7 +243,8 @@
 		</div>
 	</div>
 	<div class="bg4" >
-		<h2>YOUR TEAM</h2>
+		<h2 onclick="$('#tournament_your_team').fadeToggle('slow');" >YOUR TEAM</h2>
+		<div id="tournament_your_team" style="display:none;" >
 	<?php showMessages(); ?>
 	<?php if(!$user_has_team) { ?>
 		<?php
@@ -325,10 +326,11 @@
 			<li><strong>Website</strong>: <?= $user_team['website'] ?></li>
 		</ul> -->
 	<?php } ?>
+		</div>
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_teams').fadeToggle('slow');" >TEAMS</h2>
-		<div id="tournament_teams" style="" >
+		<div id="tournament_teams" style="display:none;" >
 			<?php
 				foreach($teams as $t)
 				{
