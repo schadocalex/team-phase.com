@@ -131,7 +131,7 @@
 
 				if($already_in_team)
 				{
-					$_SESSION['error'] = "Member <em>".$pseudo."</em> is already in a team.";
+					$_SESSION['error'] = "Member <em>$pseudo</em> is already in a team.";
 				}
 				else
 				{
@@ -141,13 +141,13 @@
 					$insert_user_team->status = TEAM_STATUS__ASKING;
 					$insert_user_team->execute();
 
-					$_SESSION['success'] = 'Member <em>'.$pseudo.'</em> has been asked to join the team.';
+					$_SESSION['success'] = "Member <em>$pseudo</em> has been asked to join the team.";
 					$user->redirect('Tournament');
 				}
 			}
 			else
 			{
-				$_SESSION['error'] = "Pseudo <em>".$pseudo."</em> doesn't exist. Ask him to register in team-phase.com.";
+				$_SESSION['error'] = "Pseudo <em>$pseudo</em> doesn't exist. Ask him to register in team-phase.com.";
 			}
 		}
 	}
@@ -201,6 +201,30 @@
 		}
 		$user->redirect('Tournament');
 	}
+	if(isset($_POST['delete_team']))
+	{
+		$user->accessRight('SUPER_ADMIN');
+
+		$form->verify_jeton($_POST['jeton']);
+		$team_id = @$_POST['delete_team'];
+
+		if(!isset($teams[$team_id]))
+			$form->error("The team doesn't exist.");
+
+		if($form->error == '')
+		{
+			$delete_team = $bdd->prepare('DELETE FROM user_team WHERE team_id = ?');
+			$delete_team->bindValue(1, $team_id);
+			$delete_team->execute();
+
+			$delete_team = $bdd->prepare('DELETE FROM team WHERE id = ?');
+			$delete_team->bindValue(1, $team_id);
+			$delete_team->execute();
+
+			$_SESSION['success'] = "The team <em>{$teams[$team_id]['name']}</em> has been deleted.";
+			$user->redirect('Tournament');
+		}
+	}
 
 	include($url."header.php");
 
@@ -244,8 +268,8 @@
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_your_team').fadeToggle('slow');" >YOUR TEAM</h2>
-		<div id="tournament_your_team" style="display:none;" >
 	<?php showMessages(); ?>
+		<div id="tournament_your_team" style="display:none;" >
 	<?php if(!$user_has_team) { ?>
 		<?php
 			echo "You don't have team yet.<br/>";
@@ -356,7 +380,16 @@
 						echo '</li>';
 					}
 					echo '
-						</ul><br /><br />';
+						</ul>';
+
+					if($user->is('SUPER_ADMIN'))
+					{
+						$form->initializeImg('delete_team', '', 'Tournament');
+						$form->hidden('delete_team', $t['id']);
+						$form->end('Delete team');
+					}
+
+					echo '<br /><br /><br />';
 				}
 			?>
 		</div>
