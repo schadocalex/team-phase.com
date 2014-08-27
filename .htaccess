@@ -17,7 +17,6 @@ RewriteRule ^Share-News-([0-9]+)$ /team-phase.com/modules/news/news.php?id=$1&sh
 RewriteRule ^Teams$ /team-phase.com/modules/teams/teams.php [L]
 RewriteRule ^Results$ /team-phase.com/modules/results/results.php [L]
 RewriteRule ^Gallery$ /team-phase.com/modules/gallery/gallery.php [L]
-RewriteRule ^Phasetv$ /team-phase.com/modules/phasetv/phasetv.php [L]
 RewriteRule ^Sponsors$ /team-phase.com/modules/sponsors/sponsors.php [L]
 
 RewriteRule ^Tournament$ /team-phase.com/modules/tournament/tournament.php [L]

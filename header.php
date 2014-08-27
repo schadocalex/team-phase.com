@@ -103,7 +103,7 @@
 					<a href="Teams" >TEAMS</a>
 					<a href="Results" >RESULTS</a>
 					<a href="Gallery" >GALLERY</a>
-					<a href="Phasetv" >PHASETV</a>
+					<!-- <a href="Phasetv" >PHASETV</a> -->
 					<a href="Sponsors" >SPONSORS</a>
 					<?php if($user->is('SUPER_ADMIN')) { ?>
 						<a href="Tournament" >TOURNAMENT</a>
