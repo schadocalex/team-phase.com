@@ -237,33 +237,81 @@
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_rules').fadeToggle('slow');" >RULES</h2>
 		<div id="tournament_rules" style="display:none;" >
-			<p><center>
-				1) All participants are required to register at www.team-phase.com. A player's nickname on the website needs to match a player's in-game nickname.
-			</p>
 			<p>
-				2) The maximum amount of slots per team is 4. Teams can add a player to their roster whilst the cup is in progress as long as that player hasn't previously played for a different team.
+				These are the rules for the TEAM-PHASE eSports Cup, please feel free to contact someone in the admin team if you think there needs to be additions.<br />
+<br />
+				Ignorance of the following rules will not be a viable excuse for competing players. Please learn and follow them throughout the tournament.<br />
+<br />
+<br />
+				<span style="color:#f00" >1) Admin team:</span><br />
+<br />
+				aacid, drkje & chilax<br />
+<br />
+				<span style="color:#f00" >2) General rules:</span><br />
+<br />
+				- The team captain is responsible for his own members knowing and following the rules.<br />
+				- Each team has 1 wildcard in the group stage, and 1 in the playoffs.<br />
+				  (If 1 team used their wildcard, the match have to be played within the next week)<br />
+				- Matches will be forced on Thursday to the following Sunday or Monday at either 20 or 21 CET.<br />
+				- All players have to record their matches!<br />
+<br />
+				<span style="color:#f00" >3) Teams & players</span><br />
+<br />
+				- All participants are required to register at www.team-phase.com. A player's nickname on the website <br />
+				  needs to match a player's in-game nickname.<br />
+				- 5 players/Team, all players have to be in the team before the sign ups are closed. <br />
+				- Using a 'merc' is only allowed if the opponent agree with it.<br />
+				- A player can only play for 1 team in this cup!<br />
+<br />
+				<span style="color:#f00" >4) Match rules:</span><br />
+<br />
+				- The maps in the 'groupstage' are forced:<br />
+				  You can use cointoss to decide which team may choose the first map. The winner of the cointoss<br />
+				  can vote the map, the loser of the cointoss can vote for the side (allies/axis).<br />
+				- The maps in the 'playoffs' are not forced.<br />
+				- Ties are not allowed, the decider will be choosen by using cointoss.<br />
+<br />
+				<span style="color:#f00" >5) Result info:</span><br />
+<br />
+				For the avoidance of doubt: <br />
+<br />
+				- Forfeit loss in groupstage = 4-0 loss.<br />
+				- Forfeit loss in playoffs = 1-0 loss.<br />
+<br />
+				Also in a tie at the end of the groupstage, we look at the individual game between the 2 teams!<br />
+<br />
+<br />
+				<span style="color:#f00" >6) Maplist:</span><br />
+<br />
+				The maplist for the TEAM-PHASE eSports Cup is:<br />
+<br />
+				adlernest<br />
+				braundorf_b4<br />
+				erdenberg_t1<br />
+				et_ice<br />
+				frostbite<br />
+				sp_delivery_te<br />
+				supply<br />
+				sw_goldrush_te<br />
+<br />
+				All maps can be downloaded here. - http://www.gamestv.org/gtvd.repository.php<br />
+<br />
+<br />
+				<span style="color:#f00" >7) Demos, cheating & abuse:</span><br />
+<br />
+				- Since there is no anticheat, players are required to record demos of their matches and are not allowed to <br />
+				  delete those demos until the end of the cup!<br />
+				- An admin can request demos at any time during the cup. <br />
+				- If you accuse someone of cheating, contact the admins.<br />
+				- Players banned on CyberGamer are not allowed to play the cup.<br />
+<br />
+				If we catch someone who cheated in this cup, we'll ban the player from our cup, and the last match where he<br />
+				cheated will result in a forfeit loss.<br />
+<br />
+				<span style="color:#f00" >8) Prizes:</span><br />
+<br />
+				Prizes will be awarded to 1st and 2nd place in the tournament, once the cup is completed.<br />
 			</p>
-			<p>
-				3) A team is allowed to use one stand-in if required, the stand-in will however have to be approved by the admin team based on resemblance of skill level in regards to the player the stand-in is replacing.
-			</p>
-			<p>
-				4) Cheating is not allowed. Players are required to record demos of their matches and are not allowed to delete those demos until the end of the cup. An admin can at all times request those demos.
-			</p>
-			<p>
-				5) Weapon boosting is not allowed. A player committing intentional boosting will be banned from playing the next match besides further consequences based on the conditions of the event.
-			</p>
-			<p>
-				6) Allowed player classes : Medic - Lieutenant - Engineer and 1 Soldier with the exclusion of the following weapons: Panzer and Flamethrower
-			</p>
-			<p>
-				7) The games are played in the standard ABBA format. By default teams have to play 2 maps, but in the case of a draw by the end of those 2 maps a match deciding map will be played.
-				<br />If teams still draw by the end of the decider map an AB round will be added until one team comes out victorious.
-			</p>
-			<p>
-				8) During the group stage the winning teams will receive 1 point per win. The losing team won't receive any points.
-				<br />If by the end of the group stage several teams have the same amount of points their positions will be determined by the results of the games where the teams with the same amount of points played each other. Naturally the winning team will get the higher position.
-				<br />The first and second placed teams in each group will advance to the winners bracket playoffs.
-			</center></p>
 		</div>
 	</div>
 	<div class="bg4" >
