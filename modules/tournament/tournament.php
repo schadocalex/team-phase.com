@@ -347,7 +347,7 @@
 		?>
 		If you want to join an existing team, ask a member from it to invite you.
 	<?php } else { ?>
-		<h2><?=dispFlag($user_team['flag_id']) ?> <?= $user_team['name'] ?></h2>
+		<h1><span style="position:relative;top:-3px;"><?=dispFlag($user_team['flag_id']) ?></span> <?= $user_team['name'] ?></h1>
 		<?php
 			if(!empty($user_team['irc']))
 				echo 'IRC: ' . $user_team['irc'] . '<br />';
