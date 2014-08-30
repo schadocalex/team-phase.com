@@ -38,7 +38,7 @@
 		array_push($team_users[$ut['team_id']], array($ut['user_id'], $ut['status']));
 	}
 
-	if(isset($_POST['create_team']))
+	if(isset($_POST['create_team']) AND $user->is('MEMBER'))
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$name = @$_POST['name'];
@@ -68,7 +68,7 @@
 			$user->redirect('Tournament');
 		}
 	}
-	if(isset($_POST['edit_team']))
+	if(isset($_POST['edit_team']) AND $user->is('MEMBER'))
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$name = @$_POST['name'];
@@ -95,7 +95,7 @@
 			$user->redirect('Tournament');
 		}
 	}
-	if(isset($_POST['delete_team']))
+	if(isset($_POST['delete_team']) AND $user->is('MEMBER'))
 	{
 		$user->accessRight('SUPER_ADMIN');
 
@@ -119,7 +119,7 @@
 			$user->redirect('Tournament');
 		}
 	}
-	if(isset($_POST['accept_team']))
+	if(isset($_POST['accept_team']) AND $user->is('MEMBER'))
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$team_id = @$_POST['accept_team'];
@@ -147,11 +147,11 @@
 			$user_accept->bindValue(2, $id_of_table_user_team);
 			$user_accept->execute();
 
-			$_SESSION['success'] = "You're now a member of team <em>{$teams[$team_id]['name']}</em>.";
+			$_SESSION['success'] = "You're now a team member of <em>{$teams[$team_id]['name']}</em>.";
 			$user->redirect('Tournament');
 		}
 	}
-	if(isset($_POST['invite_member']))
+	if(isset($_POST['invite_member']) AND $user->is('MEMBER'))
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$pseudo = @$_POST['pseudo'];
@@ -202,7 +202,7 @@
 			}
 		}
 	}
-	if(isset($_GET['promote']) OR isset($_GET['demote']) OR isset($_GET['exclude']))
+	if((isset($_GET['promote']) OR isset($_GET['demote']) OR isset($_GET['exclude'])) AND $user->is('MEMBER'))
 	{
 		$user_id = @$_GET['id_user'];
 
@@ -339,6 +339,7 @@
 				<span style="color:#f00" >8) Prizes:</span><br />
 <br />
 				Prizes will be awarded to 1st and 2nd place in the tournament, once the cup is completed.<br />
+
 			</p>
 		</div>
 	</div>
@@ -346,7 +347,9 @@
 		<h2 onclick="$('#tournament_your_team').fadeToggle('slow');" >YOUR TEAM</h2>
 	<?php showMessages(); ?>
 		<div id="tournament_your_team" style="display:none;" >
-	<?php if(!$user_has_team) { ?>
+	<?php if($user->is('VISITOR')) { ?>
+		You have to register in team-phase.com to be a player in this cup.
+	<?php } else if(!$user_has_team) { ?>
 		<?php
 			echo "You don't have team yet.<br/>";
 			foreach ($user_teams as $t_array) {
@@ -488,13 +491,13 @@
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
 		<div id="tournament_groups" style="display:none;" >
-			This stage will start at September, xxx, after teams inscription stage.
+			This stage will start after teams inscription stage.
 		</div>
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_playoffs').fadeToggle('slow');" >PLAYOFFS</h2>
 		<div id="tournament_playoffs" style="display:none;" >
-			This stage will start at September, xxx, after groups stage.
+			This stage will start after groups stage.
 		</div>
 	</div>
 </div>
