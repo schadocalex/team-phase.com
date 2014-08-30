@@ -1174,3 +1174,7 @@ form  {
 	color: #c00;
 	cursor:pointer;
 }
+#matches h2:hover {
+	color: #c00;
+	cursor:pointer;
+}

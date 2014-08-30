@@ -61,11 +61,12 @@
 			<br />
 		</div>
 		<div id="matches" class="bg4" >
-			<h2>MATCHES<br/>
+			<h2 onclick="$('#results_matches').fadeToggle('slow');" >MATCHES<br/>
 				<span style="font-size:10px;font-weight:normal;" >
 					(We don't add ODC results)
 				</span>
 			</h2>
+			<div id="results_matches" style="display:none;" >
 			<table>
 				<tr class="head_tab no_match_link" >
 					<th><br/><br/></th>
@@ -111,6 +112,7 @@
 					}
 				?>
 			</table>
+		</div>
 		</div>
 	</div>
 </div>
