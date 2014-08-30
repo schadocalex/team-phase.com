@@ -460,21 +460,7 @@
 		public function verify_email($email = '')
 		{
 			if(!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email))
-				return $this->error($this->trad->get('invalid_email'));;
-			
-		}
-		
-		// fonction pour vérifier qu'un nouveau pseudo est valide
-		public function new_pseudo($pseudo = '')
-		{
-			$bdd = MySQL::getInstance();
-			
-			$request_pseudo = $bdd->prepare('SELECT * FROM user WHERE pseudo = ?');
-			$request_pseudo->bindValue(1, $pseudo, PDO::PARAM_STR);
-			$request_pseudo->execute();
-			
-			if($request_pseudo->rowCount() != 0 OR !preg_match("#^[a-zA-Z0-9.@_-]{0,20}$#",$pseudo))
-				$this->error($this->trad->get('invalid_pseudo'));
+				return $this->error('The email is invalid.');
 		}
 		
 		// fonction pour vérifier qu'un nombre est bien valide
