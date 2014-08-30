@@ -103,10 +103,10 @@
 					<a href="Teams" >TEAMS</a>
 					<a href="Results" >RESULTS</a>
 					<a href="Gallery" >GALLERY</a>
+					<a href="Tournament" >TOURNAMENT</a>
 					<!-- <a href="Phasetv" >PHASETV</a> -->
 					<a href="Sponsors" >SPONSORS</a>
 					<?php if($user->is('SUPER_ADMIN')) { ?>
-						<a href="Tournament" >TOURNAMENT</a>
 					<?php } ?>
 					<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="_blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
 					<a href="https://twitter.com/theteamphase" target="_blank" class="shake lien_reseau_social" ><img src="include/img/tw.png" /></a>

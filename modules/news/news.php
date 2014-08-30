@@ -166,7 +166,7 @@
 					' . $edit . '
 					</p>
 					<hr class="comment_hr" />
-					<div class="content_comments" contenteditable="true" >' . parse($comment['content']) .'
+					<div class="content_comments" >' . parse($comment['content']) .'
 					</div>
 					<br />';
 			}

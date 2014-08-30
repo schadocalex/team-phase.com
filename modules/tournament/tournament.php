@@ -2,8 +2,6 @@
 	$url = '../../';
 	include($url."include.php");
 
-	$user->accessRight('SUPER_ADMIN');
-
 	define('TEAM_STATUS__MEMBER', 1);
 	define('TEAM_STATUS__LEADER', 2);
 	define('TEAM_STATUS__ASKING', 5);
@@ -308,7 +306,6 @@
 <br />
 				Also in a tie at the end of the groupstage, we look at the individual game between the 2 teams!<br />
 <br />
-<br />
 				<span style="color:#f00" >6) Maplist:</span><br />
 <br />
 				The maplist for the TEAM-PHASE eSports Cup is:<br />
@@ -323,7 +320,6 @@
 				sw_goldrush_te<br />
 <br />
 				All maps can be downloaded here. - http://www.gamestv.org/gtvd.repository.php<br />
-<br />
 <br />
 				<span style="color:#f00" >7) Demos, cheating & abuse:</span><br />
 <br />
@@ -340,7 +336,7 @@
 <br />
 				Prizes will be awarded to 1st and 2nd place in the tournament, once the cup is completed.<br />
 <br />
-				<span style="color:#f00" >9) Donations</span><br />
+				<span style="color:#f00" >9) Donations:</span><br />
 <br />
 				You can help donate for this TEAM-PHASE eSports Cup. The money donated will go 100% to the prizepool of the TEAM-PHASE eSports Cup.
 <br /><br />
