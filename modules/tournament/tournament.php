@@ -242,6 +242,7 @@
 <br />
 				Ignorance of the following rules will not be a viable excuse for competing players. Please learn and follow them throughout the tournament.<br />
 <br />
+				If you have any problem, please contact us at <a href="mailto:contact@team-phase.com" >contact@team-phase.com</a> - irc @ QuakeNet <a href="irc://qnet/team-phase" >#team-phase</a><br />
 <br />
 				<span style="color:#f00" >1) Admin team:</span><br />
 <br />
