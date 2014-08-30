@@ -68,6 +68,57 @@
 			$user->redirect('Tournament');
 		}
 	}
+	if(isset($_POST['edit_team']))
+	{
+		$form->verify_jeton($_POST['jeton']);
+		$name = @$_POST['name'];
+		$flag = @$_POST['flag'];
+		$irc = @$_POST['irc'];
+		$website = @$_POST['website'];
+
+		if(empty($name))
+			$form->error('You must enter a team name.');
+		if(!$leader)
+			$form->error('You\'re not a leader of your team');
+
+		if($form->error == '')
+		{
+			$edit_team = $bdd->prepare('UPDATE team SET name = ?, flag_id = ?, irc = ?, website = ? WHERE id = ?');
+			$edit_team->bindValue(1, $name);
+			$edit_team->bindValue(2, $flag);
+			$edit_team->bindValue(3, $irc);
+			$edit_team->bindValue(4, $website);
+			$edit_team->bindValue(5, $user_team['id']);
+			$edit_team->execute();
+
+			$_SESSION['success'] = 'Team <em>'.$name.'</em> has been edited.';
+			$user->redirect('Tournament');
+		}
+	}
+	if(isset($_POST['delete_team']))
+	{
+		$user->accessRight('SUPER_ADMIN');
+
+		$form->verify_jeton($_POST['jeton']);
+		$team_id = @$_POST['delete_team'];
+
+		if(!isset($teams[$team_id]))
+			$form->error("The team doesn't exist.");
+
+		if($form->error == '')
+		{
+			$delete_team = $bdd->prepare('DELETE FROM user_team WHERE team_id = ?');
+			$delete_team->bindValue(1, $team_id);
+			$delete_team->execute();
+
+			$delete_team = $bdd->prepare('DELETE FROM team WHERE id = ?');
+			$delete_team->bindValue(1, $team_id);
+			$delete_team->execute();
+
+			$_SESSION['success'] = "The team <em>{$teams[$team_id]['name']}</em> has been deleted.";
+			$user->redirect('Tournament');
+		}
+	}
 	if(isset($_POST['accept_team']))
 	{
 		$form->verify_jeton($_POST['jeton']);
@@ -201,30 +252,6 @@
 		}
 		$user->redirect('Tournament');
 	}
-	if(isset($_POST['delete_team']))
-	{
-		$user->accessRight('SUPER_ADMIN');
-
-		$form->verify_jeton($_POST['jeton']);
-		$team_id = @$_POST['delete_team'];
-
-		if(!isset($teams[$team_id]))
-			$form->error("The team doesn't exist.");
-
-		if($form->error == '')
-		{
-			$delete_team = $bdd->prepare('DELETE FROM user_team WHERE team_id = ?');
-			$delete_team->bindValue(1, $team_id);
-			$delete_team->execute();
-
-			$delete_team = $bdd->prepare('DELETE FROM team WHERE id = ?');
-			$delete_team->bindValue(1, $team_id);
-			$delete_team->execute();
-
-			$_SESSION['success'] = "The team <em>{$teams[$team_id]['name']}</em> has been deleted.";
-			$user->redirect('Tournament');
-		}
-	}
 
 	include($url."header.php");
 
@@ -242,7 +269,7 @@
 <br />
 				Ignorance of the following rules will not be a viable excuse for competing players. Please learn and follow them throughout the tournament.<br />
 <br />
-				If you have any problem, please contact us at <a href="mailto:contact@team-phase.com" >contact@team-phase.com</a> - irc @ QuakeNet <a href="irc://qnet/team-phase" >#team-phase</a><br />
+				If you have any problem, please contact us at <a href="mailto:contact@team-phase.com" >contact@team-phase.com</a> - irc @ QuakeNet <a href="irc://qnet/team-phase" >#team-phase</a>.<br />
 <br />
 				<span style="color:#f00" >1) Admin team:</span><br />
 <br />
@@ -386,10 +413,25 @@
 
 			if($leader)
 			{
+				// Invite member
 				$form->initializeImg('invite_member', '', 'Tournament');
 				$form->hidden('invite_member');
 				$form->input('text', 'Invite member (pseudo):', 'pseudo');
 				$form->end('Invite member');
+
+				// Edit team
+				echo '<a href="#popup_edit_team" class="fancybox" >Edit team</a>';
+				echo '<div id="popup_edit_team" class="popup" >';
+
+				$form->initialize('edit_team', '', 'Tournament');
+				$form->hidden('edit_team');
+				$form->input('text', 'Name', 'name', $user_team['name']);
+				$form->input('flag', 'Flag:', 'flag', $user_team['flag_id']);
+				$form->input('text', 'Channel IRC:', 'irc', $user_team['irc']);
+				$form->input('text', 'Website:', 'website', $user_team['website']);
+				$form->end('Edit team');
+
+				echo '</div>';
 			}
 		?>
 		<!-- <ul>
