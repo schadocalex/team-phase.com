@@ -276,7 +276,7 @@
 <br />
 				For the avoidance of doubt: <br />
 <br />
-				- Forfeit loss in groupstage = 4-0 loss.<br />
+				- Forfeit loss in group stage = 4-0 loss.<br />
 				- Forfeit loss in playoffs = 1-0 loss.<br />
 <br />
 				Also in a tie at the end of the groupstage, we look at the individual game between the 2 teams!<br />
@@ -444,10 +444,16 @@
 		</div>
 	</div>
 	<div class="bg4" >
-		<h2>GROUPS</h2>
+		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
+		<div id="tournament_groups" style="display:none;" >
+			This stage will start at September, xxx, after teams inscription stage.
+		</div>
 	</div>
 	<div class="bg4" >
-		<h2>WINNERS BRACKET</h2>
+		<h2 onclick="$('#tournament_playoffs').fadeToggle('slow');" >PLAYOFFS</h2>
+		<div id="tournament_playoffs" style="display:none;" >
+			This stage will start at September, xxx, after groups stage.
+		</div>
 	</div>
 </div>
 
