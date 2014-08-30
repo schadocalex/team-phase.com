@@ -461,25 +461,5 @@
 		{
 			if(!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email))
 				return $this->error('The email is invalid.');
-		}
-		
-		// fonction pour vérifier qu'un nombre est bien valide
-		public function verify_number($number = '', $min = 0, $max = '', $name='invalid_field')
-		{
-			if(!preg_match("#^-?[0-9]+$#",$number) AND $this->invalid_field == NULL)
-			{
-				$this->invalid_field = 1; // on évite d'afficher plusieurs fois le même message
-				
-				if($this->error == NULL) // si c'est la seule erreur
-					$this->error('Erreur dans un nombre entré.');
-				else // sinon c'est une autre erreur
-					$this->error($this->trad->get('invalid_fields'));
-			}
-			elseif((preg_match("#^[0-9]+$#",$max) AND $number > $max) OR (isset($min) AND $number < $min))
-				$this->error($this->trad->get($name));
-		
-			
-		}
-			
-		
+		}		
 	}
