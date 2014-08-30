@@ -339,6 +339,21 @@
 				<span style="color:#f00" >8) Prizes:</span><br />
 <br />
 				Prizes will be awarded to 1st and 2nd place in the tournament, once the cup is completed.<br />
+<br />
+				<span style="color:#f00" >9) Donations</span><br />
+<br />
+				You can help donate for this TEAM-PHASE eSports Cup. The money donated will go 100% to the prizepool of the TEAM-PHASE eSports Cup.
+<br /><br />
+				<center><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_donations">
+					<input type="hidden" name="business" value="NTCATJNDW6HFL">
+					<input type="hidden" name="lc" value="FR">
+					<input type="hidden" name="item_name" value="TEAM-PHASE eSports Cup">
+					<input type="hidden" name="currency_code" value="EUR">
+					<input type="hidden" name="bn" value="PP-DonationsBF:paypaldonate.png:NonHosted">
+					<input type="image" src="http://www.team-phase.com/include/img/icon/paypaldonate.png" style="background:none;" border="0" name="submit" alt="PayPal">
+					<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+				</form></center>
 
 			</p>
 		</div>
