@@ -463,6 +463,7 @@
 			<?php
 				foreach($teams as $t)
 				{
+					echo '<div class="team" >';
 					echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'].'</h3>';
 
 					if(!empty($t['irc']))
@@ -489,12 +490,12 @@
 
 					if($user->is('SUPER_ADMIN'))
 					{
-						$form->initializeImg('delete_team', '', 'Tournament');
+						/*$form->initializeImg('delete_team', '', 'Tournament');
 						$form->hidden('delete_team', $t['id']);
-						$form->end('Delete team');
+						$form->end('Delete team');*/
 					}
 
-					echo '<br /><br /><br />';
+					echo '</div>';
 				}
 			?>
 		</div>

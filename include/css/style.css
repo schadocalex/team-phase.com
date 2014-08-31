@@ -1178,3 +1178,8 @@ form  {
 	color: #c00;
 	cursor:pointer;
 }
+.team {
+	width:429px;
+	float:left;
+	margin-bottom:50px;
+}
