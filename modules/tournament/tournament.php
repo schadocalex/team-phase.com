@@ -490,9 +490,9 @@
 
 					if($user->is('SUPER_ADMIN'))
 					{
-						/*$form->initializeImg('delete_team', '', 'Tournament');
+						$form->initializeImg('delete_team', '', 'Tournament');
 						$form->hidden('delete_team', $t['id']);
-						$form->end('Delete team');*/
+						$form->end('Delete team');
 					}
 
 					echo '</div>';
