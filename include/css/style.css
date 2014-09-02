@@ -1178,7 +1178,7 @@ form  {
 	color: #c00;
 	cursor:pointer;
 }
-.team {
+#tournament_teams .team {
 	width:429px;
 	float:left;
 	margin-bottom:50px;
