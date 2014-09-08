@@ -5,13 +5,10 @@
 	$user_registered = '<ul>';
 	foreach($users as $u)
 	{
-		if($u['enabled'] == 1)
-		{
-			$user_registered .=
-			'<li>
-				'.getUsername($u).'
-			</li>';
-		}
+		$user_registered .=
+		'<li>
+			'.getUsername($u).'
+		</li>';
 	}
 	
 	$user_registered .= '</ul>';
@@ -20,13 +17,10 @@
 	$user_online = '<ul>';
 	foreach($users_online as $u)
 	{
-		if($u['enabled'] == 1)
-		{
-			$user_online .=
-			'<li>
-				'.getUsername($u).'
-			</li>';
-		}
+		$user_online .=
+		'<li>
+			'.getUsername($u).'
+		</li>';
 	}
 	$user_online .= '</ul>';
 ?>
