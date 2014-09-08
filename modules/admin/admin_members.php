@@ -16,12 +16,13 @@
 		<h2>MEMBERS</h2>
 		<table>
 			<tr>
-				<th>Id</th>
-				<th>Pseudo</th>
-				<th>IP</th>
-				<th>Email</th>
-				<th>Last visit</th>
-				<th></th>
+				<th style="width:5%" >Id</th>
+				<th style="width:20%" >Pseudo</th>
+				<th style="width:10%" >IP</th>
+				<th style="width:30%" >Email</th>
+				<th style="width:15%" >Last visit</th>
+				<th style="width:10%" > </th>
+				<th style="width:10%" > </th>
 			</tr>
 		<?php
 			usort($users2, function ($a, $b) {
@@ -39,8 +40,18 @@
 					<td>'.$u['ip'].'</td>
 					<td>'.$u['email'].'</td>
 					<td>'.$u['last_visit'].'</td>
-					<td><a href="Login-With-'.$u['id'].'" >Login with</a></td>
-				</tr>';
+				';
+				if($u['enabled'] == 1)
+					echo '<td></td>';
+				else
+					echo '<td><a href="Registration-Confirm-'.$u['confirmation_token'].'" >Activate</a></td>';
+
+				if($u['rank'] >= 3)
+					echo '<td></td>';
+				else
+					echo '<td><a href="Login-With-'.$u['id'].'" >Login With</a></td>';
+
+				echo '</tr>';
 			}
 		?>
 		</table>
