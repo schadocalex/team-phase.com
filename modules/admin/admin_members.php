@@ -21,8 +21,8 @@
 				<th style="width:10%" >IP</th>
 				<th style="width:30%" >Email</th>
 				<th style="width:15%" >Last visit</th>
-				<th style="width:10%" > </th>
-				<th style="width:10%" > </th>
+				<th style="width:10%" >Activate</th>
+				<th style="width:10%" >Login With</th>
 			</tr>
 		<?php
 			usort($users2, function ($a, $b) {
@@ -49,7 +49,7 @@
 				if($u['rank'] >= 3)
 					echo '<td></td>';
 				else
-					echo '<td><a href="Login-With-'.$u['id'].'" >Login With</a></td>';
+					echo '<td><a href="Login-With-'.$u['id'].'" >Login</a></td>';
 
 				echo '</tr>';
 			}

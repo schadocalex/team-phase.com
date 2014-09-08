@@ -5,22 +5,28 @@
 	$user_registered = '<ul>';
 	foreach($users as $u)
 	{
-		$user_registered .=
-		'<li>
-			'.getUsername($u).'
-		</li>';
+		if($u['enabled'] == 1)
+		{
+			$user_registered .=
+			'<li>
+				'.getUsername($u).'
+			</li>';
+		}
 	}
 	
 	$user_registered .= '</ul>';
 
-	$users = $bdd->query('SELECT * FROM user WHERE last_visit > DATE_SUB(NOW(), INTERVAL 5 MINUTE)');
+	$users_online = $bdd->query('SELECT * FROM user WHERE last_visit > DATE_SUB(NOW(), INTERVAL 5 MINUTE)');
 	$user_online = '<ul>';
-	foreach($users as $u)
+	foreach($users_online as $u)
 	{
-		$user_online .=
-		'<li>
-			'.getUsername($u).'
-		</li>';
+		if($u['enabled'] == 1)
+		{
+			$user_online .=
+			'<li>
+				'.getUsername($u).'
+			</li>';
+		}
 	}
 	$user_online .= '</ul>';
 ?>
