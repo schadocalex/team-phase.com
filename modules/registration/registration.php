@@ -66,7 +66,7 @@
 		Regards,
 		the Team.';
 		send_mail($email, '[Team-Phase.com] Confirm your account', $message);
-		$user->redirect('Registration-Confirm');
+		$user->redirect('Registration-Confirm-'.$confirmation_token);
 	}
 	include($url."header.php");
 ?>

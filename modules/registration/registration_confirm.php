@@ -23,7 +23,7 @@
 			$user->enabled = 1;
 			$user->update();
 			
-			$_SESSION['success'] = 'Congratulations, your account has been validated. You can now login.';
+			$_SESSION['success'] = 'Congratulations, your account has been created.';//validated. You can now login.';
 		}
 	}
 	else
