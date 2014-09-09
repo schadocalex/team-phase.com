@@ -1,20 +1,21 @@
 <?php
+
+	function getIp()
+	{
+		if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		else if(isset($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+		else
+			return $_SERVER['REMOTE_ADDR'];
+	}
+	
 	class User extends Table
 	{
 		private $table;
 		private $module_name;
 		private $module_number;
 		// Fonctions privées
-		
-		private function getIp()
-		{
-			if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-				return $_SERVER['HTTP_X_FORWARDED_FOR'];
-			else if(isset($_SERVER['HTTP_CLIENT_IP']))
-				return $_SERVER['HTTP_CLIENT_IP'];
-			else
-				return $_SERVER['REMOTE_ADDR'];
-		}
 		
 		// Constructeur
 		
@@ -53,7 +54,7 @@
 				{
 					$request_connected = $bdd->prepare('UPDATE user SET last_visit = :last_visit, ip = :ip WHERE username = :username');
 					$request_connected->bindValue('last_visit',  date('Y-m-d H:i:s'), PDO::PARAM_STR);
-					$request_connected->bindValue('ip', $this->getIp(), PDO::PARAM_STR);
+					$request_connected->bindValue('ip', getIp(), PDO::PARAM_STR);
 					$request_connected->bindValue('username', $username, PDO::PARAM_STR);
 					$request_connected->execute();
 				}

@@ -6,17 +6,23 @@
 	{
 	
 		$form->verify_jeton($_POST['jeton']);
-			
-		if(MySQL::exist('user', 'username', $_POST['username']))
+
+		$ip = getIp();
+		$nb_ips = $bdd->query('SELECT COUNT(*) FROM user WHERE ip = "'.$ip.'"');
+		$nb_ips = $nb_ips->fetch();
+		$nb_ips = $nb_ips[0];
+
+		if($nb_ips >= 5)
+			$_SESSION['error'] = 'Your IP address is already used by five others accounts. You can\'t create one more.';
+		else if(MySQL::exist('user', 'username', $_POST['username']))
 			$_SESSION['error'] = 'Your username is already used by another account.';
-	
-		elseif($form->verify_email($_POST['email']) == 1)
+		else if($form->verify_email($_POST['email']) == 1)
 			$_SESSION['error'] = 'Your address e-mail is incorrect.';
 
-		elseif(MySQL::exist('user', 'email', $_POST['email']))
+		else if(MySQL::exist('user', 'email', $_POST['email']))
 			$_SESSION['error'] = 'Your address is already used by another account.';
 			
-		elseif($_POST['password'] != $_POST['password_confirm'])
+		else if($_POST['password'] != $_POST['password_confirm'])
 			$_SESSION['error'] = 'The confirmation of your password is not correct.';
 		else
 		{
