@@ -503,7 +503,34 @@
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
 		<div id="tournament_groups" style="display:none;" >
+			<?php if($user->is('SUPER_ADMIN')) { ?>
+
+			<table class="group" >
+				<tr>
+					<th style="width:60px;" >#id</th>
+					<th style="" >Team</th>
+					<th style="width:60px;" >Points</th>
+					<th style="width:60px;" >Win</th>
+					<th style="width:60px;" >Draw</th>
+					<th style="width:60px;" >Lost</th>
+					<th style="width:60px;" >Play</th>
+					<th style="width:60px;" >Diff</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>team-phase</td>
+					<td>4</td>
+					<td>1</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>+5</td>
+				</tr>
+			</table>
+
+			<?php } else { ?>
 			This stage will start after teams inscription stage.
+			<?php } ?>
 		</div>
 	</div>
 	<div class="bg4" >

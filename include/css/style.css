@@ -1185,3 +1185,6 @@ form  {
 	margin-bottom:50px;
 	height: 140px;
 }
+#tournament .group td {
+	text-align: center;
+}
