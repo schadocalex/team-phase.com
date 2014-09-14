@@ -1185,6 +1185,15 @@ form  {
 	margin-bottom:50px;
 	height: 140px;
 }
+#tournament .group th {
+	text-align: center;
+	/* border: 1px solid #000; */
+	padding: 3px 5px 3px 5px;
+	background-color: rgba(120,0,0,0.7);
+}
 #tournament .group td {
 	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgba(160,0,0,0.7);
 }

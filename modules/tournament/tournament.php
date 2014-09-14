@@ -502,13 +502,13 @@
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
-		<div id="tournament_groups" style="display:none;" >
+		<div id="tournament_groups" style="display:non;" >
 			<?php if($user->is('SUPER_ADMIN')) { ?>
 
 			<table class="group" >
 				<tr>
-					<th style="width:60px;" >#id</th>
-					<th style="" >Team</th>
+					<th style="width:60px;" >Rank</th>
+					<th style="width:200px;">Team</th>
 					<th style="width:60px;" >Points</th>
 					<th style="width:60px;" >Win</th>
 					<th style="width:60px;" >Draw</th>
@@ -518,13 +518,43 @@
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>team-phase</td>
+					<td><img class="flag" src="include/img/flag/fr.png"> phase</td>
+					<td>8</td>
+					<td>2</td>
+					<td>0</td>
+					<td>0</td>
+					<td>2</td>
+					<td>+10</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><img class="flag" src="include/img/flag/pl.png"> wiSe guys</td>
 					<td>4</td>
 					<td>1</td>
 					<td>0</td>
 					<td>0</td>
 					<td>1</td>
 					<td>+5</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><img class="flag" src="include/img/flag/be.png"> LIKE A BOSS</td>
+					<td>4</td>
+					<td>1</td>
+					<td>0</td>
+					<td>1</td>
+					<td>2</td>
+					<td>-2</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><img class="flag" src="include/img/flag/eu.png"> One Way</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
+					<td>2</td>
+					<td>-5</td>
 				</tr>
 			</table>
 
