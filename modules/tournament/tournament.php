@@ -502,13 +502,13 @@
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
-		<div id="tournament_groups" style="display:non;" >
+		<div id="tournament_groups" style="display:none;" >
 			<?php if($user->is('SUPER_ADMIN')) { ?>
 
 			<table class="group" >
 				<tr>
 					<th style="width:60px;" >Rank</th>
-					<th style="width:200px;">Team</th>
+					<th style="width:350px;">Team</th>
 					<th style="width:60px;" >Points</th>
 					<th style="width:60px;" >Win</th>
 					<th style="width:60px;" >Draw</th>
