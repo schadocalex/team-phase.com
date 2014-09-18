@@ -17,6 +17,8 @@
 			return 'ORDER BY name ASC';
 		if($table == 'upcoming_match')
 			return 'ORDER BY id DESC';
+		if($table == 'groups')
+			return 'ORDER BY letter, rank';
 
 		return '';
 	}

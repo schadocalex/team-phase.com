@@ -8,6 +8,7 @@
 
 	$teams = Select::all('team');
 	$users_teams = Select::all('user_team');
+	$groups = Select::all('groups');
 	$user_teams = array(); // Tableau des teams relatifs à $user, array of 'key => array(team_id, status)'
 	$team_users = array(); // Tableau des users contenus dans les teams, array of 'team_id => array(user_id, status)'
 	$user_has_team = false;
@@ -464,7 +465,9 @@
 				foreach($teams as $t)
 				{
 					echo '<div class="team" >';
-					echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'].'</h3>';
+					echo '<h3>'.dispFlag($t['flag_id']).' '.$t['name'];
+					if($user->is('SUPER_ADMIN')) echo ' (#'.$t['id'].')';
+					echo '</h3>';
 
 					if(!empty($t['irc']))
 						echo 'IRC: ' . $t['irc'] . '<br />';
@@ -503,64 +506,55 @@
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
 		<div id="tournament_groups" style="display:none;" >
-			<?php if($user->is('SUPER_ADMIN')) { ?>
+			<?php
+			if($user->is('SUPER_ADMIN'))
+			{
+				$actual_group = '-1';
+				foreach ($groups as $g)
+				{
+					if($actual_group != $g['letter'])
+					{
+						if($actual_group != '-1')
+							echo '
+						</table>
+						<br />';
 
-			<table class="group" >
-				<tr>
-					<th style="width:60px;" >Rank</th>
-					<th style="width:350px;">Team</th>
-					<th style="width:60px;" >Points</th>
-					<th style="width:60px;" >Win</th>
-					<th style="width:60px;" >Draw</th>
-					<th style="width:60px;" >Lost</th>
-					<th style="width:60px;" >Play</th>
-					<th style="width:60px;" >Diff</th>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><img class="flag" src="include/img/flag/fr.png"> phase</td>
-					<td>8</td>
-					<td>2</td>
-					<td>0</td>
-					<td>0</td>
-					<td>2</td>
-					<td>+10</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><img class="flag" src="include/img/flag/pl.png"> wiSe guys</td>
-					<td>4</td>
-					<td>1</td>
-					<td>0</td>
-					<td>0</td>
-					<td>1</td>
-					<td>+5</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td><img class="flag" src="include/img/flag/be.png"> LIKE A BOSS</td>
-					<td>4</td>
-					<td>1</td>
-					<td>0</td>
-					<td>1</td>
-					<td>2</td>
-					<td>-2</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td><img class="flag" src="include/img/flag/eu.png"> One Way</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>0</td>
-					<td>2</td>
-					<td>-5</td>
-				</tr>
-			</table>
+						$actual_group = $g['letter'];
 
-			<?php } else { ?>
-			This stage will start after teams inscription stage.
-			<?php } ?>
+						echo '
+						<h3>GROUP '.$actual_group.'</h3>
+						<table class="group" >
+							<tr>
+								<th style="width:60px;" >Rank</th>
+								<th style="width:350px;">Team</th>
+								<th style="width:60px;" >Points</th>
+								<th style="width:60px;" >Win</th>
+								<th style="width:60px;" >Draw</th>
+								<th style="width:60px;" >Loss</th>
+								<th style="width:60px;" >Played</th>
+								<th style="width:60px;" >Diff</th>
+							</tr>';
+					}
+					echo '
+					<tr>
+						<td>'.$g['rank'].'</td>
+						<td>'.dispFlag($teams[$g['team_id']]['flag_id']).' '.$teams[$g['team_id']]['name'].'</td>
+						<td>'.$g['points'].'</td>
+						<td>'.$g['win'].'</td>
+						<td>'.$g['draw'].'</td>
+						<td>'.$g['loss'].'</td>
+						<td>'.$g['played'].'</td>
+						<td>'.($g['diff']>=0?'+':'').$g['diff'].'</td>
+					</tr>';
+				}
+				echo '
+				</table>';
+			}
+			else
+			{
+				echo 'This stage will start soon.';
+			}
+			?>
 		</div>
 	</div>
 	<div class="bg4" >
