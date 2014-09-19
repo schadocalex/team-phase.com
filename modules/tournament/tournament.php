@@ -507,8 +507,6 @@
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
 		<div id="tournament_groups" style="display:none;" >
 			<?php
-			if($user->is('SUPER_ADMIN'))
-			{
 				$actual_group = '-1';
 				foreach ($groups as $g)
 				{
@@ -549,11 +547,6 @@
 				}
 				echo '
 				</table>';
-			}
-			else
-			{
-				echo 'This stage will start soon.';
-			}
 			?>
 		</div>
 	</div>
