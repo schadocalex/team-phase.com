@@ -17,13 +17,14 @@
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$name = @$_POST['name'];
+		$type = @$_POST['type'];
 
 		if(empty($name))
 			$form->error('You must enter a name.');
 
 		if($form->error == "")
 		{
-			$update = $bdd->query("UPDATE competition SET name = \"$name\" WHERE id = \"$id\"");
+			$update = $bdd->query("UPDATE competition SET name = \"$name\", type = \"$type\" WHERE id = \"$id\"");
 
 			$_SESSION['success'] = 'Competition "'.$name.'" has been edited.';
 			$user->redirect('Admin-Results');
@@ -38,6 +39,10 @@
 			showMessages();
 			$form->initializeImg('edit_competition', '', 'Admin-Results-Edit-Competition-'.$competition['id']);
 			$form->input('text', 'Name:', 'name', $competition['name']);
+			$form->select('type', 'Type');
+				$form->option(0, "External cup", ($competition['type'] == 0) ? 'selected':'');
+				$form->option(1, "TEAM-PHASE ESPORT CUP", ($competition['type'] == 1) ? 'selected':'');
+			$form->end_select();
 			$form->end('Edit competition');
 		?>
 	</div>

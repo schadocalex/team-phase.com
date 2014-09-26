@@ -8,6 +8,7 @@
 	{
 		$form->verify_jeton($_POST['jeton']);
 		$name = @$_POST['name'];
+		$type = @$_POST['type'];
 
 		if(empty($name))
 			$form->error('You must enter a name.');
@@ -18,6 +19,7 @@
 		{
 			$insert_competition = new Insert('competition');
 			$insert_competition->name = $name;
+			$insert_competition->type = $type;
 			$insert_competition->execute();
 
 			$_SESSION['success'] = 'Competition "'.$name.'" has been added.';
