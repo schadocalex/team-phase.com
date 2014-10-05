@@ -54,18 +54,14 @@
 						<?= $competition['name'] ?>
 					</td>
 					<td class="icon" >
-						<?php if($competition['type'] == 0) { ?>
 						<a href="Admin-Results-Edit-Competition-<?= $competition['id'] ?>" >
 							<img src="include/img/icon/edit.gif" alt="Edit" />
 						</a>
-						<?php } ?>
 					</td>
 					<td class="icon" >
-						<?php if($competition['type'] == 0) { ?>
 						<a href="Admin-Results-Delete-Competition-<?= $competition['id'] ?>" >
 							<img src="include/img/icon/delete.png" alt="Edit" />
 						</a>
-						<?php } ?>
 					</td>
 
 				</tr>

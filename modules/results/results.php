@@ -79,39 +79,36 @@
 					$first = true;
 					foreach($match as $id => $one_match)
 					{
-						if($competition[$one_match['competition_id']]['type'] == 0)
+						$user_opponent = new User($one_match['opponent_id']);
+						$date = DateTime::createFromFormat('Y-m-d', $one_match['date']);
+						if($first) $first = false; else
+							echo '<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>';
+						echo '
+						<tr onclick="window.open(\'' . $one_match['matchlink'] . '\')" >
+						<td class="game" ><img src="include/img/upload/' . $image[$game[$one_match['game_id']]['icon_id']]['url'] . '" /></td>
+						<td class="date" >' .  $date->format('d/m/Y') . '</td>
+						<td class="compet" >' . $competition[$one_match['competition_id']]['name'] . '</td>
+						<td class="versius" >' . dispFlag($opponent[$one_match['opponent_id']]['flag_id']) . ' ' . $opponent[$one_match['opponent_id']]['name'] . '</td>';
+						if($one_match['score_phase'] < 0 OR $one_match['score_opponent'] < 0)
 						{
-							$user_opponent = new User($one_match['opponent_id']);
-							$date = DateTime::createFromFormat('Y-m-d', $one_match['date']);
-							if($first) $first = false; else
-								echo '<tr class="no_match_link" ><td colspan="5" ><hr/></td></tr>';
-							echo '
-							<tr onclick="window.open(\'' . $one_match['matchlink'] . '\')" >
-							<td class="game" ><img src="include/img/upload/' . $image[$game[$one_match['game_id']]['icon_id']]['url'] . '" /></td>
-							<td class="date" >' .  $date->format('d/m/Y') . '</td>
-							<td class="compet" >' . $competition[$one_match['competition_id']]['name'] . '</td>
-							<td class="versius" >' . dispFlag($opponent[$one_match['opponent_id']]['flag_id']) . ' ' . $opponent[$one_match['opponent_id']]['name'] . '</td>';
-							if($one_match['score_phase'] < 0 OR $one_match['score_opponent'] < 0)
-							{
-								$color = ($one_match['score_opponent'] < 0) ? 'win' : 'defeat';
-								echo'
-								<td class="score score_' . $color . '">
-									Forfeit
-								</td>';
-							}
-							else
-							{
-								$color = ($one_match['score_phase'] > $one_match['score_opponent'])? 'win' : 'defeat';
-								$color = ($one_match['score_phase'] == $one_match['score_opponent'])? 'draw' : $color;
-								
-								echo'
-								<td class="score score_'.$color.'">
-								' . $one_match['score_phase'] . ' - ' . $one_match['score_opponent'] . '
-								</td>';
-							}
-							echo '
-							</tr>';
+							$color = ($one_match['score_opponent'] < 0) ? 'win' : 'defeat';
+							echo'
+							<td class="score score_' . $color . '">
+								Forfeit
+							</td>';
 						}
+						else
+						{
+							$color = ($one_match['score_phase'] > $one_match['score_opponent'])? 'win' : 'defeat';
+							$color = ($one_match['score_phase'] == $one_match['score_opponent'])? 'draw' : $color;
+							
+							echo'
+							<td class="score score_'.$color.'">
+							' . $one_match['score_phase'] . ' - ' . $one_match['score_opponent'] . '
+							</td>';
+						}
+						echo '
+						</tr>';
 					}
 				?>
 			</table>
