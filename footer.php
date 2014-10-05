@@ -10,17 +10,16 @@
 				
 				<div id="footer" class="bg1" >
 					<p class="legal" >
-						<!-- <img src="include/img/logo_footer.png" /> <br /> -->
+						<br /><img src="include/img/logo_w.png" /> <br /> <br />
 						Copyright © 2013 - 2014 <a href="http://www.team-phase.com/" >team-phase.com</a> - All Rights Reserved<br />
 						Contact us at <a href="mailto:contact@team-phase.com" >contact@team-phase.com</a> - irc @ QuakeNet <a href="irc://qnet/team-phase" >#team-phase</a><br />
 						Designed and developed by <a href="mailto:contact@team-phase.com" >aacid</a> & <a href="mailto:schadoc_alex@hotmail.fr" >schadocalex</a>
-					<!-- </p>
-					<p class="social" > -->
-						<br/><br/>
+					</p>
+					<p class="social" >
 						<a href="https://twitter.com/theteamphase" target="_blank" class="shake lien_reseau_social" ><img src="include/img/tw.png" /></a>
 						<a href="http://www.youtube.com/channel/UCVv-kVQjK0M8fVVCFfymRmQ" target="_blank" class="shake lien_reseau_social" ><img src="include/img/yt.png" /></a>
 						<!-- <a href="#" class="shake lien_reseau_social" ><img src="include/img/fb.png" /></a> -->
-					</p>
+					</p><br/>
 					<div style="clear:both;" ></div>
 				</div>
 		</div>
