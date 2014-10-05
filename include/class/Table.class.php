@@ -146,6 +146,7 @@
 		private static $video;
 		private static $user_team;
 		private static $team;
+		private static $tournament_match;
 		private static $groups;
 
 		public function __construct() {}

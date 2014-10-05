@@ -9,6 +9,7 @@
 	$teams = Select::all('team');
 	$users_teams = Select::all('user_team');
 	$groups = Select::all('groups');
+	$tournament_matches = Select::all('tournament_match');
 	$user_teams = array(); // Tableau des teams relatifs à $user, array of 'key => array(team_id, status)'
 	$team_users = array(); // Tableau des users contenus dans les teams, array of 'team_id => array(user_id, status)'
 	$user_has_team = false;
@@ -505,7 +506,7 @@
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
-		<div id="tournament_groups" style="display:none;" >
+		<div id="tournament_groups" style="display:one;" >
 			<?php
 				$actual_group = '-1';
 				foreach ($groups as $g)
@@ -547,6 +548,29 @@
 				}
 				echo '
 				</table>';
+				echo '
+					<h2>MATCHES</h2>
+					<table class="group" >
+						<tr>
+							<th style="width:20px;" >Group</th>
+							<th style="width:250px;" >Team 1</th>
+							<th style="width:250px;">Team 2</th>
+							<th style="width:60px;" >Score</th>
+							<th style="width:120px;" >Date</th>
+							<th style="width:60px;" > </th>
+						</tr>';
+				foreach ($tournament_matches as $m) {
+					echo '<tr>
+							<td>'.$m['group'].'</td>
+							<td>'.dispFlag($teams[$m['team_1_id']]['flag_id']).' '.$teams[$m['team_1_id']]['name'].'</td>
+							<td>'.dispFlag($teams[$m['team_2_id']]['flag_id']).' '.$teams[$m['team_2_id']]['name'].'</td>
+							<td>'.$m['score_team_1'].' - '.$m['score_team_2'].'</td>
+							<td>'.$m['date'].'</td>
+							<td>'.($m['matchlink']?('<a href="'.$m['matchlink'].'">matchlink</a>'):'').'</td>
+						';
+				}
+				echo '
+					</table>';
 			?>
 		</div>
 	</div>
