@@ -1150,6 +1150,10 @@ form  {
 		text-align: center;
 	}
 
+	#admin_tournament td {
+		text-align: center;
+	}
+
 /* MEDIAS */
 
 #medias .miniature {

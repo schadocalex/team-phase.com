@@ -35,7 +35,7 @@ RewriteRule ^Registration-Confirm$ /team-phase.com/modules/registration/registra
 RewriteRule ^Registration-Confirm-(.+)$ /team-phase.com/modules/registration/registration_confirm.php?confirmation_token=$1 [L]
 
 RewriteRule ^Admin$ /team-phase.com/modules/admin/admin.php [L]
-RewriteRule ^Admin-([a-zA-Z]+)-Delete-([a-zA-Z]+)-([0-9]+)$ /team-phase.com/modules/admin/delete.php?table=$2&id=$3&page=$1 [L]
+RewriteRule ^Admin-([a-zA-Z]+)-Delete-([a-zA-Z_]+)-([0-9]+)$ /team-phase.com/modules/admin/delete.php?table=$2&id=$3&page=$1 [L]
 
 RewriteRule ^Admin-Results$ /team-phase.com/modules/admin/admin_results.php [L]
 RewriteRule ^Admin-Results-Add-Game$ /team-phase.com/modules/admin/results/add_game.php [L]
@@ -56,6 +56,10 @@ RewriteRule ^Admin-Gallery-Add-Picture$ /team-phase.com/modules/admin/gallery/ad
 RewriteRule ^Admin-Gallery-Edit-Picture-([0-9]+)$ /team-phase.com/modules/admin/gallery/edit_picture.php?id=$1 [L]
 RewriteRule ^Admin-Gallery-Add-Video$ /team-phase.com/modules/admin/gallery/add_video.php [L]
 RewriteRule ^Admin-Gallery-Edit-Video-([0-9]+)$ /team-phase.com/modules/admin/gallery/edit_video.php?id=$1 [L]
+
+RewriteRule ^Admin-Tournament$ /team-phase.com/modules/admin/admin_tournament.php [L]
+RewriteRule ^Admin-Tournament-Add-Match$ /team-phase.com/modules/admin/tournament/add_match.php [L]
+RewriteRule ^Admin-Tournament-Edit-Match-([0-9]+)$ /team-phase.com/modules/admin/tournament/edit_match.php?id=$1 [L]
 
 RewriteRule ^Admin-Others$ /team-phase.com/modules/admin/admin_others.php [L]
 

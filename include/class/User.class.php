@@ -169,6 +169,7 @@
 			*	ADMIN_RESULTS = 6
 			*	ADMIN_MEDIAS = 7
 			*	ADMIN_OTHERS = 8
+			*	ADMIN_TOURNAMENT = 11
 			*	ADMIN_ALL = 9
 			*	SUPER_ADMIN = 10
 			*	DEV = 42
@@ -177,9 +178,9 @@
 			if($s == 'VISITOR')
 				$rank = array(1);
 			if($s == 'MEMBER')
-				$rank = array(2,3,4,5,6,7,8,9,10,42);
+				$rank = array(2,3,4,5,6,7,8,9,10,11,42);
 			if($s == 'ADMIN')
-				$rank = array(3,4,5,6,7,8,9,10,42);
+				$rank = array(3,4,5,6,7,8,9,10,11,42);
 			if($s == 'ADMIN_NEWS')
 				$rank = array(4,9,10,42);
 			if($s == 'ADMIN_MEMBERS')
@@ -190,6 +191,8 @@
 				$rank = array(7,9,10,42);
 			if($s == 'ADMIN_OTHERS')
 				$rank = array(8,9,10,42);
+			if($s == 'ADMIN_TOURNAMENT')
+				$rank = array(11,9,10,42);
 			if($s == 'SUPER_ADMIN')
 				$rank = array(10,42);
 			if($s == 'DEV')
