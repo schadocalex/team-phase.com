@@ -11,6 +11,8 @@
 			return 'ORDER BY date DESC';
 		if($table == 'comment')
 			return 'ORDER BY date DESC';
+		if($table == 'tournament_group')
+			return 'ORDER BY date';
 		if($table == 'opponent')
 			return 'ORDER BY name ASC';
 		if($table == 'competition')
