@@ -2,9 +2,9 @@
 
 	function computeGroups($groups, $matches)
 	{
-		$NB_POINTS_WIN = 3;
-		$NB_POINTS_DRAW = 1;
-		$NB_POINTS_LOSS = 0;
+		$NB_POINTS_WIN = 1;
+		$NB_POINTS_DRAW = 0;
+		$NB_POINTS_LOSS = -1;
 
 		// Remise à 0
 		$groups_key_team_id = array();
@@ -48,6 +48,10 @@
 				$groups_key_team_id[$m['team_1_id']]['draw']++;
 				$groups_key_team_id[$m['team_2_id']]['draw']++;
 			}
+			if($groups_key_team_id[$m['team_1_id']]['points'] < 0)
+				$groups_key_team_id[$m['team_1_id']]['points'] = 0;
+			if($groups_key_team_id[$m['team_2_id']]['points'] < 0)
+				$groups_key_team_id[$m['team_2_id']]['points'] = 0;
 		}
 
 		usort($groups_key_team_id, "compareTeam");

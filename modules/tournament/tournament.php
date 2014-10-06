@@ -506,7 +506,7 @@
 	</div>
 	<div class="bg4" >
 		<h2 onclick="$('#tournament_groups').fadeToggle('slow');" >GROUPS</h2>
-		<div id="tournament_groups" style="display:one;" >
+		<div id="tournament_groups" style="display:none;" >
 			<?php
 				$actual_group = '-1';
 				foreach ($groups as $g)
@@ -557,7 +557,7 @@
 							<th style="width:250px;">Team 2</th>
 							<th style="width:60px;" >Score</th>
 							<th style="width:120px;" >Date</th>
-							<th style="width:60px;" > </th>
+							<th style="width:70px;" > </th>
 						</tr>';
 				foreach ($tournament_matches as $m) {
 					echo '<tr>
