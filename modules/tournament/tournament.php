@@ -571,6 +571,29 @@
 				}
 				echo '
 					</table>';
+
+				$new_groups = computeGroups($groups, $tournament_matches);
+				$new_group_request = $bdd->prepare('UPDATE groups SET
+					rank = ?,
+					points = ?,
+					win = ?,
+					draw = ?,
+					loss = ?,
+					played = ?,
+					diff = ?
+					WHERE id = ?');
+				foreach ($new_groups as $g) {
+					$new_group_request->bindValue(1, $g['rank']);
+					$new_group_request->bindValue(2, $g['points']);
+					$new_group_request->bindValue(3, $g['win']);
+					$new_group_request->bindValue(4, $g['draw']);
+					$new_group_request->bindValue(5, $g['loss']);
+					$new_group_request->bindValue(6, $g['played']);
+					$new_group_request->bindValue(7, $g['diff']);
+					$new_group_request->bindValue(8, $g['id']);
+					$new_group_request->execute();
+				}
+				
 			?>
 		</div>
 	</div>
